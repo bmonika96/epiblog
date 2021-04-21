@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NovVnos">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:orientation="vertical" >
+    <TextView android:id="@+id/nov_vnos_opis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Izpolnite čim več informaicj" />
+    <TextView android:id="@+id/nov_vnos_cas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. Čas napada" />
+    <EditText android:id="@+id/nov_vnos_vnesi_cas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" " />
+    <TextView android:id="@+id/nov_vnos_trajanje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Trajanje napada" />
+    <EditText android:id="@+id/nov_vnos_vnesi_trajanje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView android:id="@+id/nov_vnos_intenzivnost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. Intenzivnost" />
+    <EditText android:id="@+id/nov_vnos_vnesi_intenzivnost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView android:id="@+id/nov_vnos_sprotilci"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4. možni sprožilci napada" />
+    <EditText android:id="@+id/nov_vnos_vnesi_sprozilci"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <Button android:id="@+id/nov_vnos_gumb_dodaj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dodaj" />
+</LinearLayout>

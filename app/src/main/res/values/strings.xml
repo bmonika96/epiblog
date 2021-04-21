@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Epiblog</string>
+    <string name="filename_zgodovina">zgodovina.xml</string>
+    <string name="filename_uporabnik">uporabnik.xml</string>
+    <string name="tagname_zgodovina">Zgodovina</string>
 </resources>

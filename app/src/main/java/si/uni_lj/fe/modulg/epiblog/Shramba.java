@@ -2,41 +2,41 @@ package si.uni_lj.fe.modulg.epiblog;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
+
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
 
 public class Shramba  {
-    private Activity self;
-    private String filename;
+    private  Activity self;
 
-    public Shramba(Activity self){
-        self=self;
+    public Shramba(Activity act){
+        self=act;
     }
 
-    public void shrani(View view) {
-        EditText vnosno= self.findViewById(R.id.vnos);
-        String vsebina= vnosno.getText().toString();
-        vpisiVDatoteko(vsebina+"\n");
-        vnosno.setText("");
 
-    }
-    private void vpisiVDatoteko(String vsebina){
 
+    private void vpsiVDatoteko(String vsebina,String filename){
         try {
             //ustvarimo izhodni tok
-            FileOutputStream os = self.openFileOutput(filename, Context.MODE_PRIVATE| Context.MODE_APPEND);
+            FileOutputStream os = self.openFileOutput(filename, Context.MODE_PRIVATE);
             //zapisemo posredovano vsebino v datoteko
             os.write(vsebina.getBytes());
             //sprostimo izhodni tok
@@ -45,14 +45,8 @@ public class Shramba  {
             e.printStackTrace();
         }
     }
-    public void nalozi(View view) {
-        String vsebinaDatoteke=beriIzDatoteke();
-        Toast.makeText(self,vsebinaDatoteke,Toast.LENGTH_LONG).show();
 
-    }
-
-
-    private String beriIzDatoteke(){
+    private String beriIzDatoteke(String filename){
 
         // ustvarimo vhodni podatkovni tok
         FileInputStream inputStream;
@@ -79,20 +73,96 @@ public class Shramba  {
         return vsebina;
     }
 
-    private void vpisiVZunanjoDatoteko(String vsebina){
+    public NodeList pridobiUporabnika(String uporabnikStr) {
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            InputStream is = new ByteArrayInputStream(uporabnikStr.getBytes(StandardCharsets.UTF_8));
+            Document doc = dBuilder.parse(is);
+            Element element=doc.getDocumentElement();
+            element.normalize();
+            NodeList nList = doc.getElementsByTagName("employee");
+            return nList;
 
-        //metodo isExternalStorageWritable najedete na http://developer.android.com/training/basics/data-storage/files.html#WriteExternalStorage
-        if(isExternalStorageWritable()) {
-            File file = new File(self.getExternalFilesDir(Environment.DIRECTORY_PICTURES), filename);
-            Log.d("Vpis",file.getAbsolutePath());
+        } catch (Exception e) {e.printStackTrace();}
+        return null;
+    }
+    public NodeList pridobiZgodovino() {
+        try {
+            String zgodovinaStr=beriIzDatoteke(self.getString(R.string.filename_zgodovina));
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            InputStream is = new ByteArrayInputStream(zgodovinaStr.getBytes(StandardCharsets.UTF_8));
+            Document doc = dBuilder.parse(is);
+            //pridobimo vse elemente z tagom "zgodovina"
+            NodeList nList = doc.getElementsByTagName(self.getString(R.string.tagname_zgodovina));
+            return nList;
 
-            try {
-                OutputStream os = new FileOutputStream(file);
-                os.write(vsebina.getBytes());
-                os.close();
-            } catch (IOException e) {
-                Log.w("ExternalStorage", "Error writing " + file, e);
-            }
-        }
+        } catch (Exception e) {e.printStackTrace();}
+        return null;
+    }
+
+    public void dodajZgodovino(String trajanje, String cas) {
+        try {
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document doc = documentBuilder.newDocument();
+            NodeList nList=pridobiZgodovino();
+            for (int i=0; i<nList.getLength(); i++) {
+                Node node = nList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE){
+                    doc.appendChild(node);
+                }
+            }//end of for loop
+            Element zgoElement = doc.createElement(self.getString(R.string.tagname_zgodovina));
+
+            Element em = doc.createElement("Trajanje");
+            em.appendChild(doc.createTextNode(trajanje));
+            zgoElement.appendChild(em);
+
+            em=doc.createElement("Cas");
+            em.appendChild(doc.createTextNode(trajanje));
+            zgoElement.appendChild(em);
+
+            doc.appendChild(zgoElement);
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StringWriter strWriter = new StringWriter();
+            StreamResult result = new StreamResult(strWriter);
+            transformer.transform(source, result);
+            vpsiVDatoteko(strWriter.getBuffer().toString(), self.getString(R.string.filename_zgodovina));
+        } catch (Exception e) {e.printStackTrace();}
+
+    }
+    public void ustvariUporabnika(String Ime,String Priimek, String Naslov, String Stevilka) {
+        try {
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document doc = documentBuilder.newDocument();
+
+            Element em = doc.createElement("ime");
+            em.appendChild(doc.createTextNode("Rita"));
+            doc.appendChild(em);
+
+            em = doc.createElement("Priimek");
+            em.appendChild(doc.createTextNode("Roy"));
+            doc.appendChild(em);
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StringWriter strWriter = new StringWriter();
+            StreamResult result = new StreamResult(strWriter);
+            transformer.transform(source, result);
+            vpsiVDatoteko(strWriter.getBuffer().toString(), self.getString(R.string.filename_uporabnik));
+
+        } catch (Exception e) {e.printStackTrace();}
+    }
+    public static String getValue(String tag, Element element) {
+        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
+        Node node = (Node) nodeList.item(0);
+        return node.getNodeValue();
     }
 }
