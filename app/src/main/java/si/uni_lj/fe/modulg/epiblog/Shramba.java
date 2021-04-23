@@ -170,7 +170,9 @@ public class Shramba  {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document doc = documentBuilder.newDocument();
+
             Element root=doc.createElement("Uporabnik");
+
             Element em = doc.createElement("Ime");
             em.appendChild(doc.createTextNode(Ime));
             root.appendChild(em);

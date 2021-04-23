@@ -14,7 +14,7 @@ import org.w3c.dom.NodeList;
 import java.util.ArrayList;
 
 public class OpisDogodka extends AppCompatActivity {
-    public static String NODEOBJECT="NodeOBject";
+    public static String PODATKIODOGODKU="PodatkiODogodku";
     //Naslov
     //Čas napada
     //Trajanje napada
@@ -37,14 +37,17 @@ public class OpisDogodka extends AppCompatActivity {
         intenzivnost_napada=(TextView) findViewById(R.id.opis_dogodka_intenzivnost);
         moznisprozilci_napada=(TextView) findViewById(R.id.opis_dogodka_moznisprozilci);
         Intent i = getIntent();
-        list = (ArrayList<String>) i.getSerializableExtra(NODEOBJECT);
+        list = (ArrayList<String>) i.getSerializableExtra(PODATKIODOGODKU);
         cas_napada.setText(list.get(0));
         trajanje_napada.setText(list.get(1));
+        intenzivnost_napada.setText(list.get(2));
+        moznisprozilci_napada.setText((list.get(3)));
     }
 
     public void sendSms(View view){
         //Intent i = new Intent(this,SmsSender.class);
         //i.putExtra(OpisDogodka.NODEOBJECT, list);
         //startActivity(i);
+        finish();
     }
 }

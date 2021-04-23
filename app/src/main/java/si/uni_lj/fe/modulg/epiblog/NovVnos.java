@@ -49,15 +49,13 @@ public class NovVnos extends AppCompatActivity {
    // shramba.ustvariUporabnika(cas_napada.getText().toString(),trajanje_napada.getText().toString(),intenzivnost_napada.getText().toString(),moznisprozilci_napada.getText().toString());
 
         Intent i = new Intent(this,OpisDogodka.class);
-        NodeList zgodovina=shramba.pridobiZgodovino();
-        Node selectednode=zgodovina.item(3);;
-        Node uporabnik=shramba.pridobiUporabnika();
         ArrayList<String> list = new ArrayList<String>();
-        //list.add(Shramba.getValue("Cas",(Element) selectednode));
-        //list.add(Shramba.getValue("Trajanje",(Element) selectednode));
-        list.add(Shramba.getValue("Ime",(Element) uporabnik));
-        list.add(Shramba.getValue("Priimek",(Element) uporabnik));
-        i.putExtra(OpisDogodka.NODEOBJECT, list);
+        list.add(cas_napada.getText().toString());
+        list.add(trajanje_napada.getText().toString());
+        list.add(intenzivnost_napada.getText().toString());
+        list.add(moznisprozilci_napada.getText().toString());
+        i.putExtra(OpisDogodka.PODATKIODOGODKU, list);
         startActivity(i);
+        finish();
     }
 }
