@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OpisDogodka">
+    android:orientation="vertical" >
+    <TextView android:id="@+id/opis_dogodka_cas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Izpolnite čim več informaicj" />
+    <TextView android:id="@+id/opis_dogodka_trajanje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. Čas napada" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView android:id="@+id/opis_dogodka_intenzivnost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Trajanje napada" />
+
+    <TextView android:id="@+id/opis_dogodka_moznisprozilci"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. Intenzivnost" />
+
+
+    <Button android:id="@+id/opis_dogodka_posljisms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendSms"
+        android:text="Pošlji sms" />
+</LinearLayout>
