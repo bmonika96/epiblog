@@ -29,7 +29,11 @@ import javax.xml.transform.stream.StreamResult;
 
 
 public class Shramba  {
+<<<<<<< HEAD
     private  Activity self;
+=======
+    private static Activity self;
+>>>>>>> registracija pošlje v shrambo
 
     public Shramba(Activity act){
         self=act;
@@ -51,7 +55,11 @@ public class Shramba  {
 
     }
 
+<<<<<<< HEAD
     private String beriIzDatoteke(String filename){
+=======
+    private static String beriIzDatoteke(String filename){
+>>>>>>> registracija pošlje v shrambo
 
         // ustvarimo vhodni podatkovni tok
         FileInputStream inputStream;
@@ -79,9 +87,15 @@ public class Shramba  {
         return vsebina;
     }
 
+<<<<<<< HEAD
     public Node pridobiUporabnika() {
         try {
             String uporabnikStr=beriIzDatoteke(self.getString(R.string.filename_uporabnik));
+=======
+    public static Node pridobiUporabnika() {
+        try {
+            String uporabnikStr= beriIzDatoteke(self.getString(R.string.filename_uporabnik));
+>>>>>>> registracija pošlje v shrambo
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Node uporabnik=null;
@@ -111,10 +125,17 @@ public class Shramba  {
                 //pridobimo vse elemente z tagom "zgodovina"
                 nList = doc.getChildNodes().item(0).getChildNodes();
                 Log.d("atet",nodeListToString(nList));
+<<<<<<< HEAD
             }
             else{
                 nList=null;
             }
+=======
+            }
+            else{
+                nList=null;
+            }
+>>>>>>> registracija pošlje v shrambo
 
 
             return nList;
@@ -165,12 +186,20 @@ public class Shramba  {
         } catch (Exception e) {e.printStackTrace();}
 
     }
+<<<<<<< HEAD
     public void ustvariUporabnika(String Ime,String Priimek, String Naslov, String Stevilka) {
+=======
+    public void ustvariUporabnika(String Ime,String Priimek, String Naslov, String Stevilka, String ZdravilaDa, String Zdravila) {
+>>>>>>> registracija pošlje v shrambo
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document doc = documentBuilder.newDocument();
             Element root=doc.createElement("Uporabnik");
+<<<<<<< HEAD
+=======
+
+>>>>>>> registracija pošlje v shrambo
             Element em = doc.createElement("Ime");
             em.appendChild(doc.createTextNode(Ime));
             root.appendChild(em);
@@ -187,8 +216,18 @@ public class Shramba  {
             em.appendChild(doc.createTextNode(Stevilka));
             root.appendChild(em);
 
+<<<<<<< HEAD
 
 
+=======
+            em = doc.createElement("zdravilaDa");
+            em.appendChild(doc.createTextNode(ZdravilaDa));
+            root.appendChild(em);
+
+            em = doc.createElement("Zdravila");
+            em.appendChild(doc.createTextNode(Zdravila));
+            root.appendChild(em);
+>>>>>>> registracija pošlje v shrambo
 
             doc.appendChild(root);
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
