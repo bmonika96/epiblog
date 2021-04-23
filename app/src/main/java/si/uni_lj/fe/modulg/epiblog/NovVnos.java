@@ -46,7 +46,7 @@ public class NovVnos extends AppCompatActivity {
     public void nov_vnos_shrani(View view){
 
     shramba.dodajZgodovino(cas_napada.getText().toString(),trajanje_napada.getText().toString(),intenzivnost_napada.getText().toString(),moznisprozilci_napada.getText().toString());
-    shramba.ustvariUporabnika(cas_napada.getText().toString(),trajanje_napada.getText().toString(),intenzivnost_napada.getText().toString(),moznisprozilci_napada.getText().toString());
+   // shramba.ustvariUporabnika(cas_napada.getText().toString(),trajanje_napada.getText().toString(),intenzivnost_napada.getText().toString(),moznisprozilci_napada.getText().toString());
 
         Intent i = new Intent(this,OpisDogodka.class);
         NodeList zgodovina=shramba.pridobiZgodovino();

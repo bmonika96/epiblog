@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         //poglej v datoteko če je vpisan, če ni vpisan začni activity Registracija.
         //Sicer ne naredi ničesar
-        Intent intent = new Intent(this, NovVnos.class);
-        startActivity(intent);
+
     }
 
     public void odpri_zgodovino(View v) {
