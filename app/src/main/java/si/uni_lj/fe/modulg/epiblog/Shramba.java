@@ -79,16 +79,20 @@ public class Shramba  {
         return vsebina;
     }
 
-    public NodeList pridobiUporabnika(String uporabnikStr) {
+    public Node pridobiUporabnika() {
         try {
+            String uporabnikStr=beriIzDatoteke(self.getString(R.string.filename_uporabnik));
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            InputStream is = new ByteArrayInputStream(uporabnikStr.getBytes(StandardCharsets.UTF_8));
-            Document doc = dBuilder.parse(is);
-            Element element=doc.getDocumentElement();
-            element.normalize();
-            NodeList nList = doc.getElementsByTagName("employee");
-            return nList;
+            Node uporabnik=null;
+            if(uporabnikStr!=null) {
+                InputStream is = new ByteArrayInputStream(uporabnikStr.getBytes(StandardCharsets.UTF_8));
+                Document doc = dBuilder.parse(is);
+                doc.normalize();
+                uporabnik = doc.getChildNodes().item(0);
+
+            }
+            return uporabnik;
 
         } catch (Exception e) {e.printStackTrace();}
         return null;
@@ -167,13 +171,22 @@ public class Shramba  {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document doc = documentBuilder.newDocument();
             Element root=doc.createElement("Uporabnik");
-            Element em = doc.createElement("ime");
-            em.appendChild(doc.createTextNode("Rita"));
+            Element em = doc.createElement("Ime");
+            em.appendChild(doc.createTextNode(Ime));
             root.appendChild(em);
 
             em = doc.createElement("Priimek");
-            em.appendChild(doc.createTextNode("Roy"));
+            em.appendChild(doc.createTextNode(Priimek));
             root.appendChild(em);
+
+            em = doc.createElement("Naslov");
+            em.appendChild(doc.createTextNode(Naslov));
+            root.appendChild(em);
+
+            em = doc.createElement("Stevilka");
+            em.appendChild(doc.createTextNode(Stevilka));
+            root.appendChild(em);
+
 
 
 
