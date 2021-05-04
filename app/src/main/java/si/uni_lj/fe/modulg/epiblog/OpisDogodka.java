@@ -2,11 +2,17 @@ package si.uni_lj.fe.modulg.epiblog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Telephony;
+import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -46,7 +52,20 @@ public class OpisDogodka extends AppCompatActivity {
     }
 
     public void poslji_sms(View view){
-        SmsSender.sendSms(this,"bruu","38651244632");
+        String phone=shramba.pridobiUporabnikaStevilka();
+        String stt=Shramba.nodeToString(shramba.pridobiUporabnika());
+        sendSms(stt,phone);
         finish();
+    }
+    private void sendSms( String message, String phonenumber)  {
+        try{
+            SmsManager smgr = SmsManager.getDefault();
+            smgr.sendTextMessage(phonenumber.trim(),null,message.trim(),null,null);
+            Toast.makeText(this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e){
+            Toast.makeText(this, "SMS Failed to Send, Please try again", Toast.LENGTH_SHORT).show();
+            Log.d("OpisDogodkaFailedSMS",e.getMessage());
+        }
     }
 }
