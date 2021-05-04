@@ -215,6 +215,7 @@ public class Shramba  {
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
         Node node = (Node) nodeList.item(0);
         return node.getNodeValue();
+
     }
     private static String nodeListToString(NodeList nodes) throws TransformerException {
         DOMSource source = new DOMSource();

@@ -13,7 +13,6 @@ public class SmsSender extends Activity{
     PendingIntent sentPI;
     String phonenumber="";
     String txtMessage="123";
-// i dont know how to acess that database with user info when registering and also not sure if this sending works
 
 
     @Override
@@ -24,7 +23,7 @@ public class SmsSender extends Activity{
         send();
         finish();
     }
-    //is runnable necesarry??? i dont know
+
     public void send() {
         try{
             SmsManager smgr = SmsManager.getDefault();
