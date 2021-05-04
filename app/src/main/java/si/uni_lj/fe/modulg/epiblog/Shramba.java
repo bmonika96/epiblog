@@ -97,6 +97,48 @@ public class Shramba  {
         } catch (Exception e) {e.printStackTrace();}
         return null;
     }
+
+    public String pridobiUporabnikaIme(){
+        Node uporabnik=pridobiUporabnika();
+
+        if (uporabnik==null){
+        return null;
+        }else{
+            String ime=getValue("Ime",(Element) uporabnik);
+            return ime;
+        }
+    }
+    public String pridobiUporabnikaPriimek(){
+        Node uporabnik=pridobiUporabnika();
+
+        if (uporabnik==null){
+            return null;
+        }else{
+            String priimek=getValue("Priimek",(Element) uporabnik);
+            return priimek;
+        }
+    }
+    public String pridobiUporabnikaStevilka(){
+        Node uporabnik=pridobiUporabnika();
+
+        if (uporabnik==null){
+            return null;
+        }else{
+            String st=getValue("Stevilka",(Element) uporabnik);
+            return st;
+        }
+    }
+    public String pridobiUporabnikaZdravila(){
+        Node uporabnik=pridobiUporabnika();
+
+        if (uporabnik==null){
+
+            return null;
+        }else{
+            String zdravila=getValue("Zdravila",(Element) uporabnik);
+            return zdravila;
+        }
+    }
     public NodeList pridobiZgodovino() {
         try {
             String zgodovinaStr=beriIzDatoteke(self.getString(R.string.filename_zgodovina));
@@ -231,7 +273,7 @@ public class Shramba  {
 
         return writer.toString();
     }
-    private static String nodeToString(Node node) {
+    public static String nodeToString(Node node) {
         StringWriter sw = new StringWriter();
         try {
             Transformer t = TransformerFactory.newInstance().newTransformer();

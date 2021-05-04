@@ -1,6 +1,10 @@
 package si.uni_lj.fe.modulg.epiblog;
-// jabolko
-// jagoda
+
+
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 
 import android.content.Intent;
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        requestPermisions();
 
 
     }
@@ -60,5 +67,23 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public void requestPermisions() {
+        int permissions_code = 42;
+        String[] permissions = {Manifest.permission.SEND_SMS, Manifest.permission.BLUETOOTH};
+
+        if(!hasPermissions(this, permissions)){
+            ActivityCompat.requestPermissions(this, permissions, permissions_code);
+        }
+    }
 
 }

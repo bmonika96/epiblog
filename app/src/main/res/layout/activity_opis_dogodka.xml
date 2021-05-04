@@ -26,6 +26,6 @@
     <Button android:id="@+id/opis_dogodka_posljisms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="sendSms"
+        android:onClick="poslji_sms"
         android:text="Pošlji sms" />
 </LinearLayout>

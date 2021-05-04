@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,10 +45,8 @@ public class OpisDogodka extends AppCompatActivity {
         moznisprozilci_napada.setText((list.get(3)));
     }
 
-    public void sendSms(View view){
-        //Intent i = new Intent(this,SmsSender.class);
-        //i.putExtra(OpisDogodka.NODEOBJECT, list);
-        //startActivity(i);
+    public void poslji_sms(View view){
+        SmsSender.sendSms(this,"bruu","38651244632");
         finish();
     }
 }
