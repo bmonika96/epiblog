@@ -44,7 +44,6 @@ public class Registracija extends AppCompatActivity {
         zdravila=(EditText) findViewById(R.id.zdravila);
     }
     public void nov_uporabnik_shrani(View view){
-
         shramba.ustvariUporabnika(imePriimek.getText().toString(),naslov.getText().toString(),datumRojstva.getText().toString(),osebniZdravnik.getText().toString(),daZdravila.getText().toString(), zdravila.getText().toString());
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
