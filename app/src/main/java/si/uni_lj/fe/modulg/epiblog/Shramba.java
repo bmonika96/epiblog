@@ -118,6 +118,16 @@ public class Shramba  {
             return priimek;
         }
     }
+    public String pridobiUporabnikaNaslov(){
+        Node uporabnik=pridobiUporabnika();
+
+        if (uporabnik==null){
+            return null;
+        }else{
+            String naslov=getValue("Naslov",(Element) uporabnik);
+            return naslov;
+        }
+    }
     public String pridobiUporabnikaStevilka(){
         Node uporabnik=pridobiUporabnika();
 
