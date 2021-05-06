@@ -1,31 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginTop="100dp"
+    android:layout_marginBottom="200dp"
+    >
     <TextView android:id="@+id/opis_dogodka_cas"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Izpolnite čim več informaicj" />
+        android:text="Izpolnite čim več informaicj"
+        android:layout_weight="1"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="#f1f1f1"/>
     <TextView android:id="@+id/opis_dogodka_trajanje"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1. Čas napada" />
+        android:text="1. Čas napada"
+        android:layout_weight="1"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="#f1f1ff"/>
 
     <TextView android:id="@+id/opis_dogodka_intenzivnost"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="2. Trajanje napada" />
+        android:text="2. Trajanje napada"
+        android:layout_weight="1"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="#f1ffff"/>
 
     <TextView android:id="@+id/opis_dogodka_moznisprozilci"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="3. Intenzivnost" />
+        android:text="3. Intenzivnost"
+        android:layout_weight="1"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="#f1fff1"/>
 
 
-    <Button android:id="@+id/opis_dogodka_posljisms"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="poslji_sms"
-        android:text="Pošlji sms" />
+
 </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <Button
+            android:id="@+id/opis_dogodka_posljisms"
+            android:layout_weight="1"
+            android:layout_height="76dp"
+            android:onClick="poslji_sms"
+            android:text="Pošlji sms"
+            android:textSize="30dp"
+            android:layout_width="0dp" />
+    </LinearLayout>
+</RelativeLayout>

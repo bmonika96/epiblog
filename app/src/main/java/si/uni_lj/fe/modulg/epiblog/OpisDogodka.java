@@ -53,8 +53,12 @@ public class OpisDogodka extends AppCompatActivity {
 
     public void poslji_sms(View view){
         String phone=shramba.pridobiUporabnikaStevilka();
-        String stt=Shramba.nodeToString(shramba.pridobiUporabnika());
-        sendSms(stt,phone);
+        String message="<alarm>Epilepsija</alarm>\n" +
+                "<ime>"+shramba.pridobiUporabnikaIme()+"</ime>\n" +
+                "<stevilka>12345</stevilka>\n" +
+                "<lokacija>"+shramba.pridobiUporabnikaNaslov()+"</lokacija>\n" +
+                "<tel>040234532</tel>";
+        sendSms(message,phone);
         finish();
     }
     private void sendSms( String message, String phonenumber)  {
