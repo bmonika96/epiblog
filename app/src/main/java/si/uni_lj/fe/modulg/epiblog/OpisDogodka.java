@@ -52,12 +52,13 @@ public class OpisDogodka extends AppCompatActivity {
     }
 
     public void poslji_sms(View view){
-        String phone=shramba.pridobiUporabnikaStevilka();
+        String phone=shramba.pridobiUporabnikaZdravnikovaStevilka();
         String message="<alarm>Epilepsija</alarm>\n" +
                 "<ime>"+shramba.pridobiUporabnikaIme()+"</ime>\n" +
+                "<priimek>"+shramba.pridobiUporabnikaPriimek()+"</priimek>\n" +
                 "<stevilka>12345</stevilka>\n" +
                 "<lokacija>"+shramba.pridobiUporabnikaNaslov()+"</lokacija>\n" +
-                "<tel>040234532</tel>";
+                "<tel>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</tel>";
         sendSms(message,phone);
         finish();
     }

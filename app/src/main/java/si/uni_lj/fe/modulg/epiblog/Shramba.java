@@ -128,13 +128,24 @@ public class Shramba  {
             return naslov;
         }
     }
-    public String pridobiUporabnikaStevilka(){
+    public String pridobiUporabnikaOsebnaStevilka(){
         Node uporabnik=pridobiUporabnika();
 
         if (uporabnik==null){
             return null;
         }else{
-            String st=getValue("Stevilka",(Element) uporabnik);
+            String st=getValue("StevilkaOsebna",(Element) uporabnik);
+            return st;
+        }
+    }
+
+    public String pridobiUporabnikaZdravnikovaStevilka(){
+        Node uporabnik=pridobiUporabnika();
+
+        if (uporabnik==null){
+            return null;
+        }else{
+            String st=getValue("StevilkaZdravnika",(Element) uporabnik);
             return st;
         }
     }
@@ -217,7 +228,7 @@ public class Shramba  {
         } catch (Exception e) {e.printStackTrace();}
 
     }
-    public void ustvariUporabnika(String Ime,String Priimek, String Naslov, String Stevilka, String ZdravilaDa, String Zdravila) {
+    public void ustvariUporabnika(String Ime,String Priimek, String Naslov, String osebnaStevilka, String zdravnikovaStevilka, String Zdravila) {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -237,12 +248,12 @@ public class Shramba  {
             em.appendChild(doc.createTextNode(Naslov));
             root.appendChild(em);
 
-            em = doc.createElement("Stevilka");
-            em.appendChild(doc.createTextNode(Stevilka));
+            em = doc.createElement("StevilkaOsebna");
+            em.appendChild(doc.createTextNode(osebnaStevilka));
             root.appendChild(em);
 
-            em = doc.createElement("ZdravilaDa");
-            em.appendChild(doc.createTextNode(ZdravilaDa));
+            em = doc.createElement("StevilkaZdravnika");
+            em.appendChild(doc.createTextNode(zdravnikovaStevilka));
             root.appendChild(em);
 
             em = doc.createElement("Zdravila");
