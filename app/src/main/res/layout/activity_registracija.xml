@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -22,9 +24,19 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="imePriimek"
-        android:id="@+id/imePriimek"
-        android:hint="Ime in priimek"
+        android:name="ime"
+        android:id="@+id/ime"
+        android:hint="Ime"
+        android:paddingTop="16dp"
+
+        />
+    <EditText
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="priimek"
+        android:id="@+id/priimek"
+        android:hint="Priimek"
         android:paddingTop="16dp"
 
         />
@@ -42,17 +54,16 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="datumRojstva"
-        android:id="@+id/datumRojstva"
-        android:hint="Datum rojstva"
-
+        android:name="osebnaStevilka"
+        android:id="@+id/osebnaStevilka"
+        android:hint="Osebna številka"
         />
     <EditText
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="osebniZdravnik"
-        android:id="@+id/osebniZdravnik"
+        android:name="stevilkaZdravnika"
+        android:id="@+id/stevilkaZdravnika"
         android:hint="Številka osebnega zdravnika"
 
         />
@@ -66,24 +77,7 @@
         android:textSize="16sp"
         android:text="@string/jemljeZdravila"
         />
-    <RadioGroup
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/da"
-            android:textSize="16sp"
-            android:id="@+id/daZdravila" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ne"
-            android:textSize="16sp"
-            android:id="@+id/neZdravila" />
 
-    </RadioGroup>
     <EditText
         android:id="@+id/zdravila"
         android:layout_width="fill_parent"
@@ -103,3 +97,4 @@
         android:onClick="nov_uporabnik_shrani"/>
 </LinearLayout>
 
+</ScrollView>

@@ -23,11 +23,11 @@ public class Registracija extends AppCompatActivity {
     //stevilka osbnega zdravnika
     //ali jemljete zdravila? ->vpišite zdravil
     private Shramba shramba;
-    private EditText imePriimek;
+    private EditText ime;
+    private EditText priimek;
     private EditText naslov;
-    private EditText datumRojstva;
-    private EditText osebniZdravnik;
-    private RadioButton daZdravila;
+    private EditText osebnaStevilka;
+    private EditText stevilkaZdravnika;
     private EditText zdravila;
 
 
@@ -36,15 +36,15 @@ public class Registracija extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registracija);
         shramba = new Shramba(this);
-        imePriimek=(EditText) findViewById(R.id.imePriimek);
+        ime=(EditText) findViewById(R.id.ime);
+        priimek=(EditText) findViewById(R.id.priimek);
         naslov=(EditText) findViewById(R.id.naslov);
-        datumRojstva=(EditText) findViewById(R.id.datumRojstva);
-        osebniZdravnik=(EditText) findViewById(R.id.osebniZdravnik);
-        daZdravila= (RadioButton) findViewById(R.id.daZdravila);
+        osebnaStevilka=(EditText) findViewById(R.id.osebnaStevilka);
+        stevilkaZdravnika=(EditText) findViewById(R.id.stevilkaZdravnika);
         zdravila=(EditText) findViewById(R.id.zdravila);
     }
     public void nov_uporabnik_shrani(View view){
-        shramba.ustvariUporabnika(imePriimek.getText().toString(),naslov.getText().toString(),datumRojstva.getText().toString(),osebniZdravnik.getText().toString(),daZdravila.getText().toString(), zdravila.getText().toString());
+        shramba.ustvariUporabnika(ime.getText().toString(),priimek.getText().toString(),naslov.getText().toString(), osebnaStevilka.getText().toString(), stevilkaZdravnika.getText().toString(), zdravila.getText().toString());
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
