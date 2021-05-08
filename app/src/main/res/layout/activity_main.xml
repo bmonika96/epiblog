@@ -3,26 +3,75 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:padding="50dp"
     android:orientation="vertical"
     android:layout_gravity="center"
+
     >
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nov_vnos"
-        android:onClick="odpri_nov_vnos"
-        android:id="@+id/novVnos"
-
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_user_round"
+        android:layout_gravity="center"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/zgodovina"
-        android:onClick="odpri_zgodovino"
-        android:id="@+id/zgodovina"
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       android:orientation="vertical"
+       android:gravity="center"
+      >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="20sp"
+           android:id="@+id/main_ime"
+           android:paddingTop="20dp"
+           ></TextView>
 
-        />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="16sp"
+           android:id="@+id/main_naslov"
+           android:gravity="center"
 
+           ></TextView>
+
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:gravity="center">,
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="@string/nov_vnos"
+            android:onClick="odpri_nov_vnos"
+            android:id="@+id/novVnos"
+            android:layout_marginBottom="100dp"
+            android:textSize="20dp"
+
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zgodovina"
+            android:onClick="odpri_zgodovino"
+            android:id="@+id/zgodovina"
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nastavitve"
+            android:onClick="odpri_nastavitve"
+            android:id="@+id/nastavitve"
+            />
+
+    </LinearLayout>
 </LinearLayout>

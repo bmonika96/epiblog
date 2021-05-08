@@ -9,7 +9,9 @@
     <string name="filename_zgodovina">zgodovina.xml</string>
     <string name="filename_uporabnik">uporabnik.xml</string>
     <string name="tagname_dogodek">Dogodek</string>
-    <string name="nov_vnos">Nov vnos!</string>
+    <string name="nov_vnos">Nov vnos</string>
     <string name="zgodovina">zgodovina</string>
+    <string name="nastavitve">Test nastavitve</string>
+    <string name="shrani">Shrani</string>
 
 </resources>

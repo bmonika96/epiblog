@@ -30,23 +30,35 @@ public class MainActivity extends AppCompatActivity {
     //Današnji datum
     //Nov vnos
     //Preglej zgodovino
-
+  
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Shramba shramba = new Shramba(this);
+        Node uporabnik = shramba.pridobiUporabnika();
+        if (uporabnik == null ) {
+            Intent registracija = new Intent(this, Registracija.class);
+            startActivity(registracija);
+            finish();
+        }
+        else {
+            TextView ime = findViewById(R.id.main_ime);
+            TextView naslov = findViewById(R.id.main_naslov);
+            ime.setText(shramba.pridobiUporabnikaIme() + " " + shramba.pridobiUporabnikaPriimek());
+            naslov.setText(shramba.pridobiUporabnikaNaslov());
+        }
+
         requestPermisions();
-
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Shramba shramba = new Shramba(this);
-       Node uporabnik = shramba.pridobiUporabnika();
+        Node uporabnik = shramba.pridobiUporabnika();
         if (uporabnik == null ) {
             Intent registracija = new Intent(this, Registracija.class);
             startActivity(registracija);
@@ -64,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void odpri_nov_vnos(View v) {
         Intent intent = new Intent(this, NovVnos.class);
+        startActivity(intent);
+    }
+    public void odpri_nastavitve(View v) {
+        Intent intent = new Intent(this, Registracija.class);
         startActivity(intent);
     }
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
@@ -32,8 +33,8 @@ public class Registracija extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onStart() {
+        super.onStart();
         setContentView(R.layout.activity_registracija);
         shramba = new Shramba(this);
         ime=(EditText) findViewById(R.id.ime);
@@ -42,11 +43,23 @@ public class Registracija extends AppCompatActivity {
         osebnaStevilka=(EditText) findViewById(R.id.osebnaStevilka);
         stevilkaZdravnika=(EditText) findViewById(R.id.stevilkaZdravnika);
         zdravila=(EditText) findViewById(R.id.zdravila);
+
+        Node uporabnik = shramba.pridobiUporabnika();
+        if (uporabnik != null ) {
+            ime.setText(shramba.pridobiUporabnikaIme());
+            priimek.setText(shramba.pridobiUporabnikaPriimek());
+            naslov.setText(shramba.pridobiUporabnikaNaslov());
+            osebnaStevilka.setText(shramba.pridobiUporabnikaOsebnaStevilka());
+            stevilkaZdravnika.setText(shramba.pridobiUporabnikaZdravnikovaStevilka());
+            zdravila.setText(shramba.pridobiUporabnikaZdravila());
+            Button shrani = (Button) findViewById(R.id.registracija_gumb);
+            shrani.setText(R.string.shrani);
+        }
     }
     public void nov_uporabnik_shrani(View view){
         shramba.ustvariUporabnika(ime.getText().toString(),priimek.getText().toString(),naslov.getText().toString(), osebnaStevilka.getText().toString(), stevilkaZdravnika.getText().toString(), zdravila.getText().toString());
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-        finish();
+        this.finish();
     }
 }
