@@ -43,7 +43,8 @@ public class Zgodovina extends AppCompatActivity {
             list.add(selectedIntenzivnost);
             list.add(selectedSprozilci);
             i.putExtra(OpisDogodka.PODATKIODOGODKU, list);
-            startActivity(i);});
+            startActivity(i);
+        });
     }
     protected void onStart() {
         super.onStart();

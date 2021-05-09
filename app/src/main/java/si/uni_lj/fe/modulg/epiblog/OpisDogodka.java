@@ -60,7 +60,7 @@ public class OpisDogodka extends AppCompatActivity {
                 "<lokacija>"+shramba.pridobiUporabnikaNaslov()+"</lokacija>\n" +
                 "<tel>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</tel>";
         sendSms(message,phone);
-        finish();
+        this.finish();
     }
     private void sendSms( String message, String phonenumber)  {
         try{

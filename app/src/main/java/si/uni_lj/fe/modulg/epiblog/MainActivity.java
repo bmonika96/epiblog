@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     //Današnji datum
     //Nov vnos
     //Preglej zgodovino
-  
 
 
     @Override

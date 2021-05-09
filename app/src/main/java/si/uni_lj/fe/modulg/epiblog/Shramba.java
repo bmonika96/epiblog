@@ -277,7 +277,12 @@ public class Shramba  {
     public static String getValue(String tag, Element element) {
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
         Node node = (Node) nodeList.item(0);
-        return node.getNodeValue();
+        String value="";
+        if (node!=null){
+            value=node.getNodeValue();
+        }
+
+        return value;
 
     }
     private static String nodeListToString(NodeList nodes) throws TransformerException {

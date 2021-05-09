@@ -56,6 +56,6 @@ public class NovVnos extends AppCompatActivity {
         list.add(moznisprozilci_napada.getText().toString());
         i.putExtra(OpisDogodka.PODATKIODOGODKU, list);
         startActivity(i);
-        finish();
+        this.finish();
     }
 }

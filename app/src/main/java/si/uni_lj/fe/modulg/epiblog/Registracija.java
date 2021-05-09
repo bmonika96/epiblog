@@ -58,8 +58,6 @@ public class Registracija extends AppCompatActivity {
     }
     public void nov_uporabnik_shrani(View view){
         shramba.ustvariUporabnika(ime.getText().toString(),priimek.getText().toString(),naslov.getText().toString(), osebnaStevilka.getText().toString(), stevilkaZdravnika.getText().toString(), zdravila.getText().toString());
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
         this.finish();
     }
 }
