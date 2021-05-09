@@ -31,41 +31,34 @@ public class MainActivity extends AppCompatActivity {
     //Nov vnos
     //Preglej zgodovino
 
-
+    Shramba shramba;
+    TextView ime;
+    TextView naslov;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Shramba shramba = new Shramba(this);
-        Node uporabnik = shramba.pridobiUporabnika();
-        if (uporabnik == null ) {
-            Intent registracija = new Intent(this, Registracija.class);
-            startActivity(registracija);
-            finish();
-        }
-        else {
-            TextView ime = findViewById(R.id.main_ime);
-            TextView naslov = findViewById(R.id.main_naslov);
-            ime.setText(shramba.pridobiUporabnikaIme() + " " + shramba.pridobiUporabnikaPriimek());
-            naslov.setText(shramba.pridobiUporabnikaNaslov());
-        }
+        shramba = new Shramba(this);
+        ime = findViewById(R.id.main_ime);
+        naslov = findViewById(R.id.main_naslov);
 
-        requestPermisions();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Shramba shramba = new Shramba(this);
         Node uporabnik = shramba.pridobiUporabnika();
         if (uporabnik == null ) {
             Intent registracija = new Intent(this, Registracija.class);
-            startActivity(registracija);
+            startActivityForResult(registracija,1);
+        }
+        else {
+            ime.setText(shramba.pridobiUporabnikaIme() + " " + shramba.pridobiUporabnikaPriimek());
+            naslov.setText(shramba.pridobiUporabnikaNaslov());
         }
 
 
-        //poglej v datoteko če je vpisan, če ni vpisan začni activity Registracija.
-        //Sicer ne naredi ničesar
+        requestPermisions();
 
     }
 
@@ -79,9 +72,16 @@ public class MainActivity extends AppCompatActivity {
     }
     public void odpri_nastavitve(View v) {
         Intent intent = new Intent(this, Registracija.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ime.setText(shramba.pridobiUporabnikaIme() + " " + shramba.pridobiUporabnikaPriimek());
+        naslov.setText(shramba.pridobiUporabnikaNaslov());
+    }
     public static boolean hasPermissions(Context context, String... permissions) {
         if (context != null && permissions != null) {
             for (String permission : permissions) {
