@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="50dp"
     android:layout_marginBottom="200dp"
     >
     <TextView android:id="@+id/opis_dogodka_cas"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Izpolnite čim več informaicj"
         android:layout_weight="1"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:background="#f1f1f1"/>
     <TextView android:id="@+id/opis_dogodka_trajanje"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="1. Čas napada"
         android:layout_weight="1"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:background="#f1f1ff"/>
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="2. Trajanje napada"
         android:layout_weight="1"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:background="#f1ffff"/>
 
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:text="3. Intenzivnost"
         android:layout_weight="1"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:background="#f1fff1"/>
 
@@ -56,14 +56,22 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         >
-
+        <Button
+            android:id="@+id/opis_dogodka_nazaj"
+            android:onClick="pojdi_nazaj"
+            android:text="Nazaj"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:layout_margin="20dp"/>
         <Button
             android:id="@+id/opis_dogodka_posljisms"
-            android:layout_weight="1"
             android:layout_height="76dp"
+            android:layout_width="wrap_content"
             android:onClick="poslji_sms"
             android:text="Pošlji sms"
-            android:textSize="30dp"
-            android:layout_width="0dp" />
+            android:textSize="20dp"
+            android:layout_margin="20dp"/>
+
     </LinearLayout>
 </RelativeLayout>

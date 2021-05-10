@@ -1,47 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     android:orientation="vertical" >
+
     <TextView android:id="@+id/nov_vnos_opis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Izpolnite čim več informaicj" />
+        android:text="@string/nov_vnos_intro"
+        android:paddingTop="16dp"
+        android:textSize="16sp"/>
+
     <TextView android:id="@+id/nov_vnos_cas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1. Čas napada" />
-    <EditText android:id="@+id/nov_vnos_vnesi_cas"
-        android:layout_width="match_parent"
+        android:text="@string/nov_vnos_datum"
+        android:paddingBottom="10dp"
+        android:paddingTop="16dp"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/nov_vnos_datum"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text=" " />
+        android:text="@string/test_datum"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        style="?android:spinnerStyle"
+        android:layout_marginTop="10dp"
+        android:onClick="izberi_datum"/>
+
+    <TextView android:id="@+id/nov_vnos_ura_napada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nov_vnos_ura_napada"
+        android:paddingBottom="10dp"
+        android:paddingTop="16dp"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/nov_vnos_ura"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/test_ura"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        style="?android:spinnerStyle"
+        android:layout_marginTop="10dp"
+        android:onClick="izberi_uro"/>
+
     <TextView android:id="@+id/nov_vnos_trajanje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2. Trajanje napada" />
+        android:text="@string/nov_vnos_trajanje_napada"
+        android:paddingTop="16dp"
+        android:textSize="16sp"/>
+
     <EditText android:id="@+id/nov_vnos_vnesi_trajanje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:text=""
+        android:paddingTop="16dp"
+        android:textSize="16sp"/>
+
     <TextView android:id="@+id/nov_vnos_intenzivnost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3. Intenzivnost" />
+        android:text="@string/nov_vnos_intenzivnost"
+        android:paddingTop="16dp"
+        android:textSize="16sp"/>
+
     <EditText android:id="@+id/nov_vnos_vnesi_intenzivnost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:text=""
+        android:paddingTop="16dip"
+        android:textSize="16sp"/>
+
     <TextView android:id="@+id/nov_vnos_sprotilci"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4. možni sprožilci napada" />
+        android:text="@string/nov_vnos_sprozilci_napada"
+        android:paddingTop="16dip"
+        android:textSize="16sp"/>
+
     <EditText android:id="@+id/nov_vnos_vnesi_sprozilci"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:text=""
+        android:paddingTop="16dip"
+        android:textSize="16sp"/>
+
     <Button android:id="@+id/nov_vnos_gumb_dodaj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="nov_vnos_shrani"
+        android:layout_marginTop="20dp"
         android:text="Dodaj" />
+
 </LinearLayout>
+</ScrollView>

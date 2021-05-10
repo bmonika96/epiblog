@@ -28,5 +28,17 @@
     <string name="shramba_tag_intenzivnosst">Intenzivnost</string>
     <string name="shramba_tag_sprozilci">Sprozilci</string>
     <string name="shramba_tag_uporabnik">Uporabnik</string>
+    <string name="nov_vnos_datum">1. Izberite datum napada</string>
+    <string name="nov_vnos_trajanje_napada">3. Trajanje napada (minute)</string>
+    <string name="nov_vnos_intenzivnost">4. Intenzivnost od 1 do 10</string>
+    <string name="nov_vnos_sprozilci_napada">5. Možni sprožilci napada</string>
+    <string name="nov_vnos_intro">Izpolnite čim več informacij o napadu</string>
+    <string name="test_datum">JAN 01 2020</string>
+    <string name="nov_vnos_ura_napada">2. Izberite uro napada</string>
+    <string name="test_ura">14:33</string>
+    <string name="opis_dogodka_datum_ura">Datum in ura napada</string>
+    <string name="opis_dogodka_trajanje">Trajanje napada</string>
+    <string name="opis_dogodka_intenzivnost">Intenzivnost napada</string>
+    <string name="opis_dogodka_sprozilci">Možni sprožilci napada napada</string>
 
 </resources>

@@ -45,10 +45,10 @@ public class OpisDogodka extends AppCompatActivity {
         moznisprozilci_napada=(TextView) findViewById(R.id.opis_dogodka_moznisprozilci);
         Intent i = getIntent();
         list = (ArrayList<String>) i.getSerializableExtra(PODATKIODOGODKU);
-        cas_napada.setText(list.get(0));
-        trajanje_napada.setText(list.get(1));
-        intenzivnost_napada.setText(list.get(2));
-        moznisprozilci_napada.setText((list.get(3)));
+        cas_napada.setText(getString(R.string.opis_dogodka_datum_ura) + ":" + " \n" +list.get(0));
+        trajanje_napada.setText(getString(R.string.opis_dogodka_trajanje) + ":" + " \n" +list.get(1));
+        intenzivnost_napada.setText(getString(R.string.opis_dogodka_intenzivnost) + ":" + " \n" + list.get(2));
+        moznisprozilci_napada.setText((getString(R.string.opis_dogodka_sprozilci) + ":" + " \n" +list.get(3)));
     }
 
     public void poslji_sms(View view){
@@ -61,6 +61,11 @@ public class OpisDogodka extends AppCompatActivity {
                 "<tel>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</tel>";
         sendSms(message,phone);
         this.finish();
+    }
+
+    public void pojdi_nazaj(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
     private void sendSms( String message, String phonenumber)  {
         try{
