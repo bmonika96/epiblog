@@ -10,8 +10,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -19,6 +24,9 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.w3c.dom.Node;
 
@@ -38,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomNavigationView navigation = this.findViewById(R.id.app_bar_menu);
+        Menu menu = navigation.getMenu();
+        menu.findItem(R.id.navigation_profil).setChecked(true);
         shramba = new Shramba(this);
         ime = findViewById(R.id.main_ime);
         naslov = findViewById(R.id.main_naslov);
@@ -100,5 +111,15 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, permissions, permissions_code);
         }
     }
-
+    public void clickedZgodovina(MenuItem item){
+        odpri_zgodovino(null);
+        Log.d("abc","zgo");
+    }
+    public void clickedProfil(MenuItem item){
+        Log.d("abc","pro");
+    }
+    public void clickedNovvnos(MenuItem item){
+        odpri_nov_vnos(null);
+        Log.d("abc","nov");
+    }
 }
