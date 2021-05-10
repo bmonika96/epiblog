@@ -13,5 +13,20 @@
     <string name="zgodovina">zgodovina</string>
     <string name="nastavitve">Test nastavitve</string>
     <string name="shrani">Shrani</string>
+    <string name="opisdogodka_smsfailedstring">Napaka pri pošiljanju SMS</string>
+    <string name="opisdogodka_uspesnoposlansms">SMS je bil poslan</string>
+    <string name="shramba_tag_ime">Ime</string>
+    <string name="shramba_tag_priimek">Priimek</string>
+    <string name="shramba_tag_naslov">Naslov</string>
+    <string name="shramba_tag_osebnastevilka">StevilkaOsebna</string>
+    <string name="shramba_tag_zdravnikovastevilka">StevilkaZdravnika</string>
+    <string name="shramba_tag_zdravila">Zdravila</string>
+    <string name="shramba_tag_zgodovina">Zgodovina</string>
+    <string name="shramba_tag_dogodek">Dogodek</string>
+    <string name="shramba_tag_trajanje">Trajanje</string>
+    <string name="shramba_tag_cas">Cas</string>
+    <string name="shramba_tag_intenzivnosst">Intenzivnost</string>
+    <string name="shramba_tag_sprozilci">Sprozilci</string>
+    <string name="shramba_tag_uporabnik">Uporabnik</string>
 
 </resources>

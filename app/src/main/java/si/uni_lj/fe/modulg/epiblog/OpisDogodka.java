@@ -66,11 +66,10 @@ public class OpisDogodka extends AppCompatActivity {
         try{
             SmsManager smgr = SmsManager.getDefault();
             smgr.sendTextMessage(phonenumber.trim(),null,message.trim(),null,null);
-            Toast.makeText(this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.opisdogodka_uspesnoposlansms), Toast.LENGTH_SHORT).show();
         }
         catch (Exception e){
-            Toast.makeText(this, "SMS Failed to Send, Please try again", Toast.LENGTH_SHORT).show();
-            Log.d("OpisDogodkaFailedSMS",e.getMessage());
+            Toast.makeText(this, getString(R.string.opisdogodka_smsfailedstring), Toast.LENGTH_SHORT).show();
         }
     }
 }

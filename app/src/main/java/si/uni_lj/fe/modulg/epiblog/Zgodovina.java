@@ -59,7 +59,7 @@ public class Zgodovina extends AppCompatActivity {
         SimpleAdapter adapter = new SimpleAdapter(this,
                 seznam,
                 R.layout.zgodovina_item_holder,
-                new String[]{"Cas", "Trajanje", "Intenzivnost","Sprozilci"},
+                new String[]{getString(R.string.shramba_tag_cas), getString(R.string.shramba_tag_trajanje), getString(R.string.shramba_tag_intenzivnosst),getString(R.string.shramba_tag_sprozilci)},
                 new int[]{R.id.zgodovina_item_holder_cas, R.id.zgodovina_item_holder_trajanje, R.id.zgodovina_item_holder_intenzivnost,R.id.zgodovina_item_holder_sprozilci});
         lv.setAdapter(adapter);
     }
@@ -74,19 +74,19 @@ public class Zgodovina extends AppCompatActivity {
                 for (int i = 0; i < nodeList.getLength(); i++) {
                     Node c =nodeList.item(i);
 
-                   String cas = Shramba.getValue("Cas",(Element)c);
-                    String trajanje = Shramba.getValue("Trajanje",(Element)c);
-                    String intenzivnost = Shramba.getValue("Intenzivnost",(Element)c);
-                    String sprozilci = Shramba.getValue("Sprozilci",(Element)c);
+                   String cas = Shramba.getValue(getString(R.string.shramba_tag_cas),(Element)c);
+                    String trajanje = Shramba.getValue(getString(R.string.shramba_tag_trajanje),(Element)c);
+                    String intenzivnost = Shramba.getValue(getString(R.string.shramba_tag_intenzivnosst),(Element)c);
+                    String sprozilci = Shramba.getValue(getString(R.string.shramba_tag_sprozilci),(Element)c);
 
                     // tmp hash map for single contact
                     HashMap<String, String> contact = new HashMap<>();
 
                     // adding each child node to HashMap key => value
-                    contact.put("Cas", cas);
-                    contact.put("Trajanje", trajanje);
-                    contact.put("Intenzivnost", intenzivnost);
-                    contact.put("Sprozilci", sprozilci);
+                    contact.put(getString(R.string.shramba_tag_cas), cas);
+                    contact.put(getString(R.string.shramba_tag_trajanje), trajanje);
+                    contact.put(getString(R.string.shramba_tag_intenzivnosst), intenzivnost);
+                    contact.put(getString(R.string.shramba_tag_sprozilci), sprozilci);
 
                     // adding contact to contact list
                     contactList.add(contact);

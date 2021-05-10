@@ -104,7 +104,7 @@ public class Shramba  {
         if (uporabnik==null){
         return null;
         }else{
-            String ime=getValue("Ime",(Element) uporabnik);
+            String ime=getValue(self.getString(R.string.shramba_tag_ime),(Element) uporabnik);
             return ime;
         }
     }
@@ -114,7 +114,7 @@ public class Shramba  {
         if (uporabnik==null){
             return null;
         }else{
-            String priimek=getValue("Priimek",(Element) uporabnik);
+            String priimek=getValue(self.getString(R.string.shramba_tag_priimek),(Element) uporabnik);
             return priimek;
         }
     }
@@ -124,7 +124,7 @@ public class Shramba  {
         if (uporabnik==null){
             return null;
         }else{
-            String naslov=getValue("Naslov",(Element) uporabnik);
+            String naslov=getValue(self.getString(R.string.shramba_tag_naslov),(Element) uporabnik);
             return naslov;
         }
     }
@@ -134,7 +134,7 @@ public class Shramba  {
         if (uporabnik==null){
             return null;
         }else{
-            String st=getValue("StevilkaOsebna",(Element) uporabnik);
+            String st=getValue(self.getString(R.string.shramba_tag_osebnastevilka),(Element) uporabnik);
             return st;
         }
     }
@@ -145,7 +145,7 @@ public class Shramba  {
         if (uporabnik==null){
             return null;
         }else{
-            String st=getValue("StevilkaZdravnika",(Element) uporabnik);
+            String st=getValue(self.getString(R.string.shramba_tag_zdravnikovastevilka),(Element) uporabnik);
             return st;
         }
     }
@@ -156,7 +156,7 @@ public class Shramba  {
 
             return null;
         }else{
-            String zdravila=getValue("Zdravila",(Element) uporabnik);
+            String zdravila=getValue(self.getString(R.string.shramba_tag_zdravila),(Element) uporabnik);
             return zdravila;
         }
     }
@@ -173,7 +173,6 @@ public class Shramba  {
                 doc.normalize();
                 //pridobimo vse elemente z tagom "zgodovina"
                 nList = doc.getChildNodes().item(0).getChildNodes();
-                Log.d("atet",nodeListToString(nList));
             }
             else{
                 nList=null;
@@ -192,27 +191,27 @@ public class Shramba  {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document doc = documentBuilder.newDocument();
             NodeList nList=pridobiZgodovino();
-            Element root=doc.createElement("Zgodovina");
+            Element root=doc.createElement(self.getString(R.string.shramba_tag_zgodovina));
             if (nList!=null) {
                 for (int i=0; i<nList.getLength();i++){
                     Node node =nList.item(i);
                     root.appendChild(doc.importNode(node,true));
                 }
             }
-            Element dogodekEl = doc.createElement("Dogodek");
-            Element em = doc.createElement("Trajanje");
+            Element dogodekEl = doc.createElement(self.getString(R.string.shramba_tag_dogodek));
+            Element em = doc.createElement(self.getString(R.string.shramba_tag_trajanje));
             em.appendChild(doc.createTextNode(cas));
             dogodekEl.appendChild(em);
 
-            em=doc.createElement("Cas");
+            em=doc.createElement(self.getString(R.string.shramba_tag_cas));
             em.appendChild(doc.createTextNode(trajanje));
             dogodekEl.appendChild(em);
 
-            em=doc.createElement("Intenzivnost");
+            em=doc.createElement(self.getString(R.string.shramba_tag_intenzivnosst));
             em.appendChild(doc.createTextNode(intenzivnost));
             dogodekEl.appendChild(em);
 
-            em=doc.createElement("Sprozilci");
+            em=doc.createElement(self.getString(R.string.shramba_tag_sprozilci));
             em.appendChild(doc.createTextNode(sprozilci));
             dogodekEl.appendChild(em);
             root.appendChild(dogodekEl);
@@ -234,29 +233,29 @@ public class Shramba  {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document doc = documentBuilder.newDocument();
 
-            Element root=doc.createElement("Uporabnik");
+            Element root=doc.createElement(self.getString(R.string.shramba_tag_uporabnik));
 
-            Element em = doc.createElement("Ime");
+            Element em = doc.createElement(self.getString(R.string.shramba_tag_ime));
             em.appendChild(doc.createTextNode(Ime));
             root.appendChild(em);
 
-            em = doc.createElement("Priimek");
+            em = doc.createElement(self.getString(R.string.shramba_tag_priimek));
             em.appendChild(doc.createTextNode(Priimek));
             root.appendChild(em);
 
-            em = doc.createElement("Naslov");
+            em = doc.createElement(self.getString(R.string.shramba_tag_naslov));
             em.appendChild(doc.createTextNode(Naslov));
             root.appendChild(em);
 
-            em = doc.createElement("StevilkaOsebna");
+            em = doc.createElement(self.getString(R.string.shramba_tag_osebnastevilka));
             em.appendChild(doc.createTextNode(osebnaStevilka));
             root.appendChild(em);
 
-            em = doc.createElement("StevilkaZdravnika");
+            em = doc.createElement(self.getString(R.string.shramba_tag_zdravnikovastevilka));
             em.appendChild(doc.createTextNode(zdravnikovaStevilka));
             root.appendChild(em);
 
-            em = doc.createElement("Zdravila");
+            em = doc.createElement(self.getString(R.string.shramba_tag_zdravila));
             em.appendChild(doc.createTextNode(Zdravila));
             root.appendChild(em);
 
