@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:onClick="clickedZgodovina"
+        android:id="@+id/navigation_zgodovina"
+        android:icon="@drawable/ic_launcher_background"
+
+        android:title="Zgodovina"/>
+
+    <item
+        android:onClick="clickedProfil"
+        android:id="@+id/navigation_profil"
+        android:icon="@drawable/ic_journal_background"
+        android:checked="true"
+        android:title="Domov"/>
+
+    <item
+        android:onClick="clickedNovvnos"
+        android:id="@+id/navigation_novvnos"
+        android:icon="@drawable/ic_user_background"
+
+        android:title="Nov Vnos"/>
+
+</menu>
