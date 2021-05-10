@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ListView
         android:id="@+id/activity_zgodovina_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/app_bar_menu"></ListView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/app_bar_menu"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:menu="@menu/app_bar_menu"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

@@ -6,14 +6,23 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -23,6 +32,8 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class NovVnos extends AppCompatActivity {
@@ -42,12 +53,21 @@ public class NovVnos extends AppCompatActivity {
     private Button nov_vnos_ura;
     private DatePickerDialog izberiDatum;
     private TimePickerDialog izberiUro;
-
+    private int sheight;
+    Boolean menuvisible=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nov_vnos);
 
+        Rect rectgle= new Rect();
+        Window window= getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
+        sheight= rectgle.bottom;
+
+        BottomNavigationView navigation = this.findViewById(R.id.app_bar_menu);
+        Menu menu = navigation.getMenu();
+        menu.findItem(R.id.navigation_novvnos).setChecked(true);
         initDatePicker(); // inicializacija
         initTimePicker();
 
@@ -61,10 +81,51 @@ public class NovVnos extends AppCompatActivity {
 
         nov_vnos_ura = findViewById(R.id.nov_vnos_ura);
         nov_vnos_ura.setText(danesUra());
+        Timer timer = new Timer();
+        TimerTask t = new TimerTask() {
+            @Override
+            public void run() {
+
+                keyopen();
+            }
+        };
+        timer.scheduleAtFixedRate(t,0,100);
 
 
     }
 
+
+    public void keyopen()
+    {
+        Rect rectgle= new Rect();
+        Window window= getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
+        int curheight= rectgle.bottom;
+
+        if (curheight<sheight && menuvisible )
+        {
+            setvisible(false);
+        }
+        else if(curheight>sheight && !menuvisible){
+            setvisible(true);
+        }
+        sheight=curheight;
+    }
+    private void setvisible(Boolean t) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(t) {
+                    NovVnos.this.findViewById(R.id.app_bar_menu).setVisibility(View.VISIBLE);
+                    NovVnos.this.menuvisible=true;
+                }
+                else{
+                    NovVnos.this.findViewById(R.id.app_bar_menu).setVisibility(View.GONE);
+                    NovVnos.this.menuvisible=false;
+                }
+            }
+        });
+    }
     private void initDatePicker()
     {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
@@ -187,5 +248,20 @@ public class NovVnos extends AppCompatActivity {
         i.putExtra(OpisDogodka.PODATKIODOGODKU, list);
         startActivity(i);
         this.finish();
+    }
+
+    public void clickedZgodovina(MenuItem item){
+        Intent i = new Intent(this,Zgodovina.class);
+        startActivity(i);
+        this.finish();
+        Log.d("abc","zgo");
+    }
+    public void clickedProfil(MenuItem item){
+        this.finish();
+        Log.d("abc","pro");
+    }
+    public void clickedNovvnos(MenuItem item){
+
+        Log.d("abc","nov");
     }
 }

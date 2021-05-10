@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Epiblog">
         <activity android:name=".OpisDogodka"></activity>
-        <activity android:name=".NovVnos" />
+        <activity android:name=".NovVnos" android:windowSoftInputMode="adjustResize"/>/>
         <activity android:name=".Zgodovina" />
         <activity android:name=".Registracija" />
         <activity android:name=".MainActivity">

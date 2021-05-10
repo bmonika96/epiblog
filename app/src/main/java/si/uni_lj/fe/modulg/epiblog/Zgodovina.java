@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +33,12 @@ public class Zgodovina extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zgodovina);
+        BottomNavigationView navigation = this.findViewById(R.id.app_bar_menu);
+
+        Menu menu = navigation.getMenu();
+        menu.findItem(R.id.navigation_zgodovina).setChecked(true);
         shramba=new Shramba(this);
+
         lv = findViewById(R.id.activity_zgodovina_list);
         lv.setOnItemClickListener((parent, view, position, id) -> {
             String selectedCas = ((TextView) view.findViewById(R.id.zgodovina_item_holder_cas)).getText().toString();
@@ -96,4 +105,17 @@ public class Zgodovina extends AppCompatActivity {
             }
             return contactList;
         }
+    public void clickedZgodovina(MenuItem item){
+        Log.d("abc","zgo");
+    }
+    public void clickedProfil(MenuItem item){
+        this.finish();
+        Log.d("abc","pro");
+    }
+    public void clickedNovvnos(MenuItem item){
+        Intent i = new Intent(this,NovVnos.class);
+        startActivity(i);
+        this.finish();
+        Log.d("abc","nov");
+    }
 }
