@@ -22,6 +22,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 //Banana
 public class Zgodovina extends AppCompatActivity {
@@ -103,6 +104,7 @@ public class Zgodovina extends AppCompatActivity {
             } catch (Exception e) {
                 Log.e(TAG, "Json parsing error: " + e.getMessage());
             }
+            Collections.reverse(contactList);
             return contactList;
         }
     public void clickedZgodovina(MenuItem item){
