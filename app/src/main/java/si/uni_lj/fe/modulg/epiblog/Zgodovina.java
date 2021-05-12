@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -59,12 +60,15 @@ public class Zgodovina extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        /*new AsyncTaskExecutor().execute(new PrenosPodatkov(urlNaslov,this),
-                rezultat -> Toast.makeText(this,rezultat,Toast.LENGTH_LONG).show())
-        ;*/
         NodeList nodezgodovina=shramba.pridobiZgodovino();
+        if(nodezgodovina!=null) {
         ArrayList<HashMap<String, String>> hashZgodovina=nodelistToHashmap(nodezgodovina);
         prikaziPodatke(hashZgodovina);
+        }
+        else{
+            this.findViewById(R.id.ni_zgodovine).setVisibility(View.VISIBLE);
+            this.findViewById(R.id.activity_zgodovina_list).setVisibility(View.INVISIBLE);
+        }
     }
     private void prikaziPodatke(ArrayList<HashMap<String, String>> seznam){
         SimpleAdapter adapter = new SimpleAdapter(this,

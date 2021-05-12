@@ -48,5 +48,6 @@
     <string name="xml_poslji_sms">Pošlji sms</string>
     <string name="xml_izpolnite_im_ve_informaicj">Izpolnite čim več informaicj</string>
     <string name="xml_shrani">SHRANI</string>
+    <string name="xml_ni_shranjene_zgodovine">Ni shranjene zgodovine</string>
 
 </resources>
