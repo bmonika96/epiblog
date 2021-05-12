@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void odpri_nastavitve(View v) {
-        Intent intent = new Intent(this, Registracija.class);
+        Intent intent = new Intent(this, Nastavitve.class);
         startActivityForResult(intent, 1);
 
     }
@@ -118,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
     public void clickedProfil(MenuItem item){
         Log.d("abc","pro");
     }
-    public void clickedNovvnos(MenuItem item){
-        odpri_nov_vnos(null);
+    public void clickedNastavitve(MenuItem item){
+        odpri_nastavitve(null);
         Log.d("abc","nov");
     }
 }

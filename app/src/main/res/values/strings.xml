@@ -47,5 +47,6 @@
     <string name="xml_nazaj">Nazaj</string>
     <string name="xml_poslji_sms">Pošlji sms</string>
     <string name="xml_izpolnite_im_ve_informaicj">Izpolnite čim več informaicj</string>
+    <string name="xml_shrani">SHRANI</string>
 
 </resources>

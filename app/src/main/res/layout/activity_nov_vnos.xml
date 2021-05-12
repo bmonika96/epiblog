@@ -101,13 +101,32 @@
         android:paddingTop="16dip"
         android:textSize="16sp"/>
 
-    <Button android:id="@+id/nov_vnos_gumb_dodaj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="nov_vnos_shrani"
-        android:layout_marginTop="20dp"
-        android:text="@string/xml_dodaj" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+        <Button
+            android:id="@+id/opis_dogodka_nazaj"
+            android:onClick="pojdi_nazaj"
+            android:text="@string/xml_nazaj"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:layout_margin="20dp"/>
+        <Button
+            android:id="@+id/nov_vnos_gumb_dodaj"
+            android:layout_height="76dp"
+            android:layout_width="wrap_content"
+            android:onClick="nov_vnos_shrani"
+            android:text="@string/xml_dodaj"
+            android:textSize="20dp"
+            android:layout_margin="20dp"/>
 
+    </LinearLayout>
 </LinearLayout>
 
 </ScrollView>

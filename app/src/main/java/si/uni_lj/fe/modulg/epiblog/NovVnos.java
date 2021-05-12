@@ -65,9 +65,6 @@ public class NovVnos extends AppCompatActivity {
         window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
         sheight= rectgle.bottom;
 
-        BottomNavigationView navigation = this.findViewById(R.id.app_bar_menu);
-        Menu menu = navigation.getMenu();
-        menu.findItem(R.id.navigation_novvnos).setChecked(true);
         initDatePicker(); // inicializacija
         initTimePicker();
 
@@ -227,7 +224,9 @@ public class NovVnos extends AppCompatActivity {
         return "JANUAR";
     }
 
-
+    public void pojdi_nazaj(View view) {
+        this.finish();
+    }
     public void izberi_datum(View view){
         izberiDatum.show();
     }
@@ -260,8 +259,10 @@ public class NovVnos extends AppCompatActivity {
         this.finish();
         Log.d("abc","pro");
     }
-    public void clickedNovvnos(MenuItem item){
-
+    public void clickedNastavitve(MenuItem item){
+        Intent i = new Intent(this,Nastavitve.class);
+        startActivity(i);
+        this.finish();
         Log.d("abc","nov");
     }
 }

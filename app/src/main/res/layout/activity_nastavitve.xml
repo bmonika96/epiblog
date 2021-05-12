@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:orientation="vertical"
+
+            >
+            <TextView
+                android:id="@+id/registracijaUvod"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="16dp"
+                android:textSize="16sp"
+                android:text="@string/registracija_uvod"
+                />
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="ime"
+                android:id="@+id/ime"
+                android:hint="Ime"
+                android:paddingTop="16dp"
+
+                />
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="priimek"
+                android:id="@+id/priimek"
+                android:hint="Priimek"
+                android:paddingTop="16dp"
+
+                />
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="naslov"
+                android:id="@+id/naslov"
+                android:hint="Naslov"
+                android:paddingTop="16dp"
+
+                />
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="osebnaStevilka"
+                android:id="@+id/osebnaStevilka"
+                android:hint="Osebna številka"
+                />
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="stevilkaZdravnika"
+                android:id="@+id/stevilkaZdravnika"
+                android:hint="Številka osebnega zdravnika"
+
+                />
+            <TextView
+                android:layout_marginTop="20dp"
+                android:id="@+id/jemljeZdravila"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dip"
+                android:paddingTop="16dip"
+                android:textSize="16sp"
+                android:text="@string/jemljeZdravila"
+                />
+
+            <EditText
+                android:id="@+id/zdravila"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:name="zdravila"
+                android:paddingTop="16dip"
+                android:layout_marginTop="20dp"
+                android:hint="Zdravila, ki jih jemljete"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+                <Button
+                    android:id="@+id/opis_dogodka_nazaj"
+                    android:onClick="pojdi_nazaj"
+                    android:text="@string/xml_nazaj"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="76dp"
+                    android:layout_margin="20dp"/>
+                <Button
+                    android:id="@+id/registracija_gumb"
+                    android:layout_height="76dp"
+                    android:layout_width="wrap_content"
+                    android:onClick="uporabnik_shrani"
+                    android:text="@string/xml_shrani"
+                    android:textSize="20dp"
+                    android:layout_margin="20dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/app_bar_menu"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:menu="@menu/app_bar_menu"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

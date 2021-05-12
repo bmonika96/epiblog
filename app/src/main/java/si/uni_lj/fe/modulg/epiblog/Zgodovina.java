@@ -115,8 +115,8 @@ public class Zgodovina extends AppCompatActivity {
         this.finish();
         Log.d("abc","pro");
     }
-    public void clickedNovvnos(MenuItem item){
-        Intent i = new Intent(this,NovVnos.class);
+    public void clickedNastavitve(MenuItem item){
+        Intent i = new Intent(this,Nastavitve.class);
         startActivity(i);
         this.finish();
         Log.d("abc","nov");

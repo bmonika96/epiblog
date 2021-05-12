@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
+
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -87,14 +91,19 @@
         android:layout_marginTop="20dp"
         android:hint="Zdravila, ki jih jemljete"
         />
-
     <Button
-    android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/registracija_gumb"
+        android:layout_height="76dp"
+        android:layout_width="wrap_content"
+        android:onClick="nov_uporabnik_shrani"
         android:text="@string/registracija"
-        android:onClick="nov_uporabnik_shrani"/>
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"/>
+
 </LinearLayout>
 
 </ScrollView>
+
+
+</RelativeLayout>

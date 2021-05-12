@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.Telephony;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,5 +79,23 @@ public class OpisDogodka extends AppCompatActivity {
         catch (Exception e){
             Toast.makeText(this, getString(R.string.opisdogodka_smsfailedstring), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void clickedZgodovina(MenuItem item){
+        this.finish();
+        Log.d("abc","zgo");
+    }
+    public void clickedProfil(MenuItem item){
+        Intent i = new Intent(this,MainActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        Log.d("abc","pro");
+    }
+    public void clickedNastavitve(MenuItem item){
+        Intent i = new Intent(this,Nastavitve.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        this.finish();
+        Log.d("abc","nov");
     }
 }
