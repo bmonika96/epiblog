@@ -56,6 +56,7 @@ public class Zgodovina extends AppCompatActivity {
             startActivity(i);
         });
     }
+    @Override
     protected void onStart() {
         super.onStart();
         /*new AsyncTaskExecutor().execute(new PrenosPodatkov(urlNaslov,this),
