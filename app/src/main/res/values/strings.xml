@@ -40,5 +40,12 @@
     <string name="opis_dogodka_trajanje">Trajanje napada</string>
     <string name="opis_dogodka_intenzivnost">Intenzivnost napada</string>
     <string name="opis_dogodka_sprozilci">Možni sprožilci napada napada</string>
+    <string name="xml_dodaj">Dodaj</string>
+    <string name="xml_1_cas_napada">1. Čas napada</string>
+    <string name="xml_2_trajanje_napada">2. Trajanje napada</string>
+    <string name="xml_3_intenzivnost">3. Intenzivnost</string>
+    <string name="xml_nazaj">Nazaj</string>
+    <string name="xml_poslji_sms">Pošlji sms</string>
+    <string name="xml_izpolnite_im_ve_informaicj">Izpolnite čim več informaicj</string>
 
 </resources>

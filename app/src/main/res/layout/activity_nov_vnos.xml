@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:onClick="nov_vnos_shrani"
         android:layout_marginTop="20dp"
-        android:text="Dodaj" />
+        android:text="@string/xml_dodaj" />
 
 </LinearLayout>
 
