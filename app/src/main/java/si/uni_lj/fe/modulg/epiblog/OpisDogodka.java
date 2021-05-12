@@ -53,12 +53,15 @@ public class OpisDogodka extends AppCompatActivity {
 
     public void poslji_sms(View view){
         String phone=shramba.pridobiUporabnikaZdravnikovaStevilka();
-        String message="<alarm>Epilepsija</alarm>\n" +
-                "<ime>"+shramba.pridobiUporabnikaIme()+"</ime>\n" +
-                "<priimek>"+shramba.pridobiUporabnikaPriimek()+"</priimek>\n" +
-                "<stevilka>12345</stevilka>\n" +
-                "<lokacija>"+shramba.pridobiUporabnikaNaslov()+"</lokacija>\n" +
-                "<tel>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</tel>";
+        String message=
+                "<I>"+shramba.pridobiUporabnikaIme()+"</I>\n" +
+                "<P>"+shramba.pridobiUporabnikaPriimek()+"</P>\n" +
+                "<C>"+list.get(0)+"</C>\n"+
+                "<T>"+list.get(1)+"<T>\n"+
+                "<F>"+list.get(2)+"</F>\n" +
+                "<S>"+list.get(3)+"</S>\n"+
+                "<L>"+shramba.pridobiUporabnikaNaslov()+"</L>\n" +
+                "<G>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</G>";
         sendSms(message,phone);
         this.finish();
     }
