@@ -34,7 +34,7 @@
         android:layout_weight="1"
         android:textSize="20dp"
         android:gravity="center"
-        android:background="#f1ffff"/>
+        android:background="#F99B30"/>
 
     <TextView android:id="@+id/opis_dogodka_moznisprozilci"
         android:layout_width="match_parent"

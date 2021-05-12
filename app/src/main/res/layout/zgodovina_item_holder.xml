@@ -12,23 +12,44 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/zgodovina_item_holder_cas"
-            android:layout_width="match_parent"
+            android:id="@+id/zgodovina_cas"
+            android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:paddingTop="6dip"
             android:paddingBottom="2dip"
-            android:textColor="@color/secondary_epiblog"
             android:textSize="16sp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+            android:text="Trajanje napada: "/>
         <TextView
-            android:id="@+id/zgodovina_item_holder_trajanje"
-            android:layout_width="match_parent"
+            android:id="@+id/zgodovina_item_holder_cas"
+            android:layout_width="0px"
             android:layout_height="match_parent"
+            android:paddingTop="6dip"
             android:layout_weight="1"
             android:paddingBottom="2dip"
-            android:textColor="@color/secondary_epiblog" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#2EB0B9"/>
+        <TextView
+            android:id="@+id/zgodovina_trajanje"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:paddingTop="6dip"
+            android:paddingBottom="2dip"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Datum in ura: "/>
+        <TextView
+            android:id="@+id/zgodovina_item_holder_trajanje"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:paddingTop="6dip"
+            android:layout_weight="2"
+            android:paddingBottom="2dip"
+            android:textStyle="bold"
+            android:textColor="#2EB0B9" />
 
     </LinearLayout>
 
@@ -38,20 +59,41 @@
         android:layout_weight="1"
     android:orientation="horizontal"
     >
-
+        <TextView
+            android:id="@+id/zgodovina_intenzivnost"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:paddingTop="6dip"
+            android:paddingBottom="2dip"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Intenzivnost: "/>
         <TextView
         android:id="@+id/zgodovina_item_holder_intenzivnost"
-        android:layout_width="match_parent"
+            android:layout_width="0px"
         android:layout_height="match_parent"
-        android:textColor="#5d5d5d"
+            android:paddingTop="6dip"
         android:textStyle="bold"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+            android:textColor="#54B7BF"/>
+        <TextView
+            android:id="@+id/zgodovina_sprozilci"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:paddingTop="6dip"
+            android:paddingBottom="2dip"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Sprožilci: "/>
     <TextView
         android:id="@+id/zgodovina_item_holder_sprozilci"
-        android:layout_width="match_parent"
+        android:layout_width="0px"
         android:layout_height="match_parent"
-        android:textColor="#5d5d5d"
+        android:paddingTop="6dip"
+        android:textColor="#54B7BF"
         android:textStyle="bold"
-        android:layout_weight="1"/>
-</LinearLayout>
+        android:layout_weight="2"/>
+ </LinearLayout>
 </LinearLayout>

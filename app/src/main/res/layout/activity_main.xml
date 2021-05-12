@@ -7,28 +7,32 @@
 
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-android:padding="50dp"
+
 android:orientation="vertical"
 android:layout_gravity="center">>
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_user_round"
-        android:layout_gravity="center"
 
-        />
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="0dp"
-       android:layout_weight="1"
+       android:layout_weight="2"
        android:orientation="vertical"
        android:gravity="center"
+       android:background="@drawable/ozadje"
       >
+       <ImageView
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:src="@mipmap/ic_user_round"
+           android:layout_gravity="center"
+
+           />
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textSize="20sp"
            android:id="@+id/main_ime"
+           android:textColor="@color/white"
+           android:textStyle="bold"
            android:paddingTop="20dp"
            ></TextView>
 
@@ -36,6 +40,8 @@ android:layout_gravity="center">>
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textSize="16sp"
+           android:textStyle="bold"
+           android:textColor="@color/white"
            android:id="@+id/main_naslov"
            android:gravity="center"
 
@@ -47,8 +53,7 @@ android:layout_gravity="center">>
         android:layout_height="0dp"
         android:layout_weight="4"
         android:orientation="vertical"
-        android:gravity="center">,
-
+    >
         <Button
             android:layout_width="200dp"
             android:layout_height="100dp"
@@ -57,25 +62,10 @@ android:layout_gravity="center">>
             android:id="@+id/novVnos"
             android:layout_marginBottom="100dp"
             android:textSize="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
 
             />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zgodovina"
-            android:onClick="odpri_zgodovino"
-            android:id="@+id/zgodovina"
-
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nastavitve"
-            android:onClick="odpri_nastavitve"
-            android:id="@+id/nastavitve"
-            />
-
     </LinearLayout>
 
 </LinearLayout>
@@ -85,5 +75,6 @@ android:layout_gravity="center">>
         android:layout_width="match_parent"
         app:menu="@menu/app_bar_menu"
         android:layout_alignParentBottom="true"
+
         />
 </RelativeLayout>

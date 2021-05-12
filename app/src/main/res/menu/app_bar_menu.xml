@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
     <item
         android:onClick="clickedNovvnos"
         android:id="@+id/navigation_novvnos"
-        android:icon="@drawable/ic_user_background"
-        android:title="Nov Vnos"/>
+        android:icon="@drawable/ic_settings"
+        android:title="Nov Vnos"
+
+        />
 
     <item
-        android:onClick="clickedProfil"
         android:id="@+id/navigation_profil"
-        android:icon="@drawable/ic_journal_background"
-        android:title="Profil"/>
+        android:icon="@drawable/ic_home"
+        android:onClick="clickedProfil"
+        android:title="Profil" />
 
     <item
-        android:onClick="clickedZgodovina"
         android:id="@+id/navigation_zgodovina"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Zgodovina"/>
+        android:icon="@drawable/ic_history"
+        android:onClick="clickedZgodovina"
+        android:title="Zgodovina" />
 
 </menu>
