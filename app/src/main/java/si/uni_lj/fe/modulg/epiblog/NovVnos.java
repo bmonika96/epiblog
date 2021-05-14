@@ -82,11 +82,12 @@ public class NovVnos extends AppCompatActivity {
         TimerTask t = new TimerTask() {
             @Override
             public void run() {
-
+            if(NovVnos.this!=null) {
                 keyopen();
             }
+            }
         };
-        timer.scheduleAtFixedRate(t,0,100);
+        timer.scheduleAtFixedRate(t,0,50);
 
 
     }
@@ -236,7 +237,7 @@ public class NovVnos extends AppCompatActivity {
 
     public void nov_vnos_shrani(View view){
 
-    shramba.dodajZgodovino(nov_vnos_datum.getText().toString() + " " + nov_vnos_ura.getText().toString(),trajanje_napada.getText().toString(),intenzivnost_napada.getText().toString(),moznisprozilci_napada.getText().toString());
+        String thisid=shramba.dodajZgodovino(nov_vnos_datum.getText().toString() + " " + nov_vnos_ura.getText().toString(),trajanje_napada.getText().toString(),intenzivnost_napada.getText().toString(),moznisprozilci_napada.getText().toString());
 
         Intent i = new Intent(this,OpisDogodka.class);
         ArrayList<String> list = new ArrayList<String>();
@@ -244,6 +245,7 @@ public class NovVnos extends AppCompatActivity {
         list.add(trajanje_napada.getText().toString());
         list.add(intenzivnost_napada.getText().toString());
         list.add(moznisprozilci_napada.getText().toString());
+        list.add(thisid);
         i.putExtra(OpisDogodka.PODATKIODOGODKU, list);
         startActivity(i);
         this.finish();

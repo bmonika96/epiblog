@@ -195,7 +195,7 @@ public class Shramba  {
         return velikost;
     }
 
-    public void dodajZgodovino(String cas, String trajanje, String intenzivnost, String sprozilci) {
+    public String dodajZgodovino(String cas, String trajanje, String intenzivnost, String sprozilci) {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -243,10 +243,10 @@ public class Shramba  {
             StreamResult result = new StreamResult(strWriter);
             transformer.transform(source, result);
             vpsiVDatoteko(strWriter.getBuffer().toString(), self.getString(R.string.filename_zgodovina));
+            return String.valueOf(id);
         } catch (Exception e) {e.printStackTrace();}
-
+        return null;
     }
-
 
     public void izbrisiZgodovino(String id){
 

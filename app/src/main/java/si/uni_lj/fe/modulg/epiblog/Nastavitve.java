@@ -77,11 +77,12 @@ public class Nastavitve extends AppCompatActivity {
         TimerTask t = new TimerTask() {
             @Override
             public void run() {
-
-                keyopen();
+                if(Nastavitve.this!=null) {
+                    keyopen();
+                }
             }
         };
-        timer.scheduleAtFixedRate(t,0,100);
+        timer.scheduleAtFixedRate(t,0,50);
 
     }
     public void pojdi_nazaj(View view) {
