@@ -56,13 +56,13 @@ public class OpisDogodka extends AppCompatActivity {
         String phone=shramba.pridobiUporabnikaZdravnikovaStevilka();
         String message=
                 "<I>"+shramba.pridobiUporabnikaIme()+"</I>\n" +
-                "<P>"+shramba.pridobiUporabnikaPriimek()+"</P>\n" +
-                "<C>"+list.get(0)+"</C>\n"+
-                "<T>"+list.get(1)+"<T>\n"+
-                "<F>"+list.get(2)+"</F>\n" +
-                "<S>"+list.get(3)+"</S>\n"+
-                "<L>"+shramba.pridobiUporabnikaNaslov()+"</L>\n" +
-                "<G>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</G>";
+                        "<P>"+shramba.pridobiUporabnikaPriimek()+"</P>\n" +
+                        "<C>"+list.get(0)+"</C>\n"+
+                        "<T>"+list.get(1)+"<T>\n"+
+                        "<F>"+list.get(2)+"</F>\n" +
+                        "<S>"+list.get(3)+"</S>\n"+
+                        "<L>"+shramba.pridobiUporabnikaNaslov()+"</L>\n" +
+                        "<G>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</G>";
         sendSms(message,phone);
         this.finish();
     }
@@ -82,6 +82,9 @@ public class OpisDogodka extends AppCompatActivity {
     }
 
     public void clickedZgodovina(MenuItem item){
+        Intent i = new Intent(this,Zgodovina.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
         this.finish();
         Log.d("abc","zgo");
     }

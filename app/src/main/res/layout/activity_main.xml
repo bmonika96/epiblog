@@ -66,6 +66,26 @@ android:layout_gravity="center">>
             android:layout_marginTop="50dp"
 
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="prazno"
+            android:id="@+id/profil_datum"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="prazno"
+            android:id="@+id/profil_st_napadov"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            />
+
     </LinearLayout>
 
 </LinearLayout>
