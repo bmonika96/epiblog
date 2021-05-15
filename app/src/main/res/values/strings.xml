@@ -50,5 +50,6 @@
     <string name="xml_shrani">SHRANI</string>
     <string name="xml_ni_shranjene_zgodovine">Ni shranjene zgodovine</string>
     <string name="shramba_tag_id">Id</string>
+    <string name="xml_izbrisi">Izbriši</string>
 
 </resources>

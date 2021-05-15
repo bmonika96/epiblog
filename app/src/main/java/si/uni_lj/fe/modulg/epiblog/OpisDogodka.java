@@ -34,6 +34,7 @@ public class OpisDogodka extends AppCompatActivity {
     TextView trajanje_napada;
     TextView intenzivnost_napada;
     TextView moznisprozilci_napada;
+    String id="";
     ArrayList<String> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class OpisDogodka extends AppCompatActivity {
         trajanje_napada.setText(getString(R.string.opis_dogodka_trajanje) + ":" + " \n" +list.get(1));
         intenzivnost_napada.setText(getString(R.string.opis_dogodka_intenzivnost) + ":" + " \n" + list.get(2));
         moznisprozilci_napada.setText((getString(R.string.opis_dogodka_sprozilci) + ":" + " \n" +list.get(3)));
+        id=list.get(4);
     }
 
     public void poslji_sms(View view){
@@ -81,6 +83,10 @@ public class OpisDogodka extends AppCompatActivity {
         }
     }
 
+    public void izbrisi_zgo(View v){
+        shramba.izbrisiZgodovino(id);
+        this.finish();
+    }
     public void clickedZgodovina(MenuItem item){
         Intent i = new Intent(this,Zgodovina.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

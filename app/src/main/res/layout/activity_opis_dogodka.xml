@@ -11,6 +11,14 @@
     android:layout_marginTop="50dp"
     android:layout_marginBottom="200dp"
     >
+    <Button
+        android:id="@+id/opis_dogodka_izbrisi"
+        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:onClick="izbrisi_zgo"
+        android:text="@string/xml_izbrisi"
+        android:textSize="20dp"
+        android:layout_margin="20dp"/>
     <TextView android:id="@+id/opis_dogodka_cas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
