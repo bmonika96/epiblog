@@ -30,6 +30,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.w3c.dom.Node;
 
+import java.util.Calendar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     Shramba shramba;
     TextView ime;
     TextView naslov;
+    TextView datum;
+    TextView st_napadov;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         shramba = new Shramba(this);
         ime = findViewById(R.id.main_ime);
         naslov = findViewById(R.id.main_naslov);
+        datum=findViewById(R.id.profil_datum);
+        st_napadov=findViewById(R.id.profil_st_napadov);
 
     }
 
@@ -61,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
         Node uporabnik = shramba.pridobiUporabnika();
         if (uporabnik == null ) {
             Intent registracija = new Intent(this, Registracija.class);
-            startActivityForResult(registracija,1);
+            startActivity(registracija);
         }
         else {
             ime.setText(shramba.pridobiUporabnikaIme() + " " + shramba.pridobiUporabnikaPriimek());
             naslov.setText(shramba.pridobiUporabnikaNaslov());
         }
-
-
+        st_napadov.setText("Število zabeleženih napadov: "+String.valueOf(shramba.pridobiVelikostZgodovine()));
+        datum.setText(danesDatum());
         requestPermisions();
 
     }
@@ -86,13 +92,15 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
 
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        ime.setText(shramba.pridobiUporabnikaIme() + " " + shramba.pridobiUporabnikaPriimek());
-        naslov.setText(shramba.pridobiUporabnikaNaslov());
+    private String danesDatum() {
+        Calendar cal = Calendar.getInstance();
+        int leto = cal.get(Calendar.YEAR);
+        int mesec = cal.get(Calendar.MONTH);
+        mesec = mesec + 1; // gre samo od 0 do 11
+        int dan = cal.get(Calendar.DAY_OF_MONTH);
+        return dan+"."+mesec+"."+leto;
     }
+
     public static boolean hasPermissions(Context context, String... permissions) {
         if (context != null && permissions != null) {
             for (String permission : permissions) {

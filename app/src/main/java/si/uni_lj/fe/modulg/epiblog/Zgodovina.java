@@ -47,12 +47,14 @@ public class Zgodovina extends AppCompatActivity {
             String selectedIntenzivnost = ((TextView) view.findViewById(R.id.zgodovina_item_holder_intenzivnost)).getText().toString();
             String selectedTrajanje = ((TextView) view.findViewById(R.id.zgodovina_item_holder_trajanje)).getText().toString();
             String selectedSprozilci = ((TextView) view.findViewById(R.id.zgodovina_item_holder_sprozilci)).getText().toString();
+            String sid = ((TextView) view.findViewById(R.id.zgodovina_item_holder_id)).getText().toString();
             Intent i = new Intent(this,OpisDogodka.class);
             ArrayList<String> list = new ArrayList<String>();
             list.add(selectedCas);
             list.add(selectedTrajanje);
             list.add(selectedIntenzivnost);
             list.add(selectedSprozilci);
+            list.add(sid);
             i.putExtra(OpisDogodka.PODATKIODOGODKU, list);
             startActivity(i);
         });
@@ -60,22 +62,24 @@ public class Zgodovina extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+
         NodeList nodezgodovina=shramba.pridobiZgodovino();
-        if(nodezgodovina!=null) {
-        ArrayList<HashMap<String, String>> hashZgodovina=nodelistToHashmap(nodezgodovina);
-        prikaziPodatke(hashZgodovina);
+        if (nodezgodovina!=null&&nodezgodovina.getLength()>0) {
+            ArrayList<HashMap<String, String>> hashZgodovina = nodelistToHashmap(nodezgodovina);
+            prikaziPodatke(hashZgodovina);
         }
         else{
-            this.findViewById(R.id.ni_zgodovine).setVisibility(View.VISIBLE);
-            this.findViewById(R.id.activity_zgodovina_list).setVisibility(View.INVISIBLE);
+            TextView nizgodovine=findViewById(R.id.activity_zgodovina_nizgodovine);
+            nizgodovine.setVisibility(View.VISIBLE);
         }
     }
     private void prikaziPodatke(ArrayList<HashMap<String, String>> seznam){
         SimpleAdapter adapter = new SimpleAdapter(this,
                 seznam,
                 R.layout.zgodovina_item_holder,
-                new String[]{getString(R.string.shramba_tag_cas), getString(R.string.shramba_tag_trajanje), getString(R.string.shramba_tag_intenzivnosst),getString(R.string.shramba_tag_sprozilci)},
-                new int[]{R.id.zgodovina_item_holder_cas, R.id.zgodovina_item_holder_trajanje, R.id.zgodovina_item_holder_intenzivnost,R.id.zgodovina_item_holder_sprozilci});
+                new String[]{getString(R.string.shramba_tag_cas), getString(R.string.shramba_tag_trajanje), getString(R.string.shramba_tag_intenzivnosst),getString(R.string.shramba_tag_sprozilci),getString(R.string.shramba_tag_id)},
+                new int[]{R.id.zgodovina_item_holder_cas, R.id.zgodovina_item_holder_trajanje, R.id.zgodovina_item_holder_intenzivnost,R.id.zgodovina_item_holder_sprozilci,R.id.zgodovina_item_holder_id});
         lv.setAdapter(adapter);
     }
 
@@ -93,6 +97,7 @@ public class Zgodovina extends AppCompatActivity {
                     String trajanje = Shramba.getValue(getString(R.string.shramba_tag_trajanje),(Element)c);
                     String intenzivnost = Shramba.getValue(getString(R.string.shramba_tag_intenzivnosst),(Element)c);
                     String sprozilci = Shramba.getValue(getString(R.string.shramba_tag_sprozilci),(Element)c);
+                    String id = Shramba.getValue(getString(R.string.shramba_tag_id),(Element)c);
 
                     // tmp hash map for single contact
                     HashMap<String, String> contact = new HashMap<>();
@@ -102,6 +107,7 @@ public class Zgodovina extends AppCompatActivity {
                     contact.put(getString(R.string.shramba_tag_trajanje), trajanje);
                     contact.put(getString(R.string.shramba_tag_intenzivnosst), intenzivnost);
                     contact.put(getString(R.string.shramba_tag_sprozilci), sprozilci);
+                    contact.put(getString(R.string.shramba_tag_id),id);
 
                     // adding contact to contact list
                     contactList.add(contact);
@@ -124,5 +130,11 @@ public class Zgodovina extends AppCompatActivity {
         startActivity(i);
         this.finish();
         Log.d("abc","nov");
+    }
+    public void reload(){
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 }

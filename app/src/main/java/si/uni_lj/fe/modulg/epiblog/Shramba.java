@@ -2,6 +2,7 @@ package si.uni_lj.fe.modulg.epiblog;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import java.io.ByteArrayInputStream;
@@ -185,14 +186,25 @@ public class Shramba  {
         return null;
     }
 
-    public void dodajZgodovino(String cas, String trajanje, String intenzivnost, String sprozilci) {
+    public int pridobiVelikostZgodovine(){
+        int velikost=0;
+        NodeList zgodovina=pridobiZgodovino();
+        if(zgodovina!=null){
+            velikost=zgodovina.getLength();
+        }
+        return velikost;
+    }
+
+    public String dodajZgodovino(String cas, String trajanje, String intenzivnost, String sprozilci) {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document doc = documentBuilder.newDocument();
             NodeList nList=pridobiZgodovino();
             Element root=doc.createElement(self.getString(R.string.shramba_tag_zgodovina));
-            if (nList!=null) {
+            int id=0;
+            if (nList!=null&&nList.getLength()>0) {
+                id= Integer.parseInt(getValue(self.getString(R.string.shramba_tag_id),(Element)nList.item(nList.getLength()-1)))+1;
                 for (int i=0; i<nList.getLength();i++){
                     Node node =nList.item(i);
                     root.appendChild(doc.importNode(node,true));
@@ -214,6 +226,13 @@ public class Shramba  {
             em=doc.createElement(self.getString(R.string.shramba_tag_sprozilci));
             em.appendChild(doc.createTextNode(sprozilci));
             dogodekEl.appendChild(em);
+
+            em=doc.createElement(self.getString(R.string.shramba_tag_id));
+            em.appendChild(doc.createTextNode(String.valueOf(id)));//pristejemo 1
+            dogodekEl.appendChild(em);
+
+
+
             root.appendChild(dogodekEl);
             doc.appendChild(root);
 
@@ -224,8 +243,38 @@ public class Shramba  {
             StreamResult result = new StreamResult(strWriter);
             transformer.transform(source, result);
             vpsiVDatoteko(strWriter.getBuffer().toString(), self.getString(R.string.filename_zgodovina));
+            return String.valueOf(id);
         } catch (Exception e) {e.printStackTrace();}
+        return null;
+    }
 
+    public void izbrisiZgodovino(String id){
+
+        try {
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document doc = documentBuilder.newDocument();
+            NodeList zgodovina =pridobiZgodovino();
+            Element root=doc.createElement(self.getString(R.string.shramba_tag_zgodovina));
+            if (zgodovina!=null&&zgodovina.getLength()>0) {
+                for (int i=0; i<zgodovina.getLength();i++){
+                    Node node =zgodovina.item(i);
+                    Element el= (Element)node;
+                    if(!el.getElementsByTagName(self.getString(R.string.shramba_tag_id)).item(0).getTextContent().equals(id)){
+                        root.appendChild(doc.importNode(node, true));
+                    }
+                }
+            }
+            doc.appendChild(root);
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StringWriter strWriter = new StringWriter();
+            StreamResult result = new StreamResult(strWriter);
+            transformer.transform(source, result);
+            vpsiVDatoteko(strWriter.getBuffer().toString(), self.getString(R.string.filename_zgodovina));
+        } catch (Exception e) {e.printStackTrace();}
     }
     public void ustvariUporabnika(String Ime,String Priimek, String Naslov, String osebnaStevilka, String zdravnikovaStevilka, String Zdravila) {
         try {
