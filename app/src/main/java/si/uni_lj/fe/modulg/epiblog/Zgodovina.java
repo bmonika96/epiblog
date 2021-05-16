@@ -70,6 +70,7 @@ public class Zgodovina extends AppCompatActivity {
             prikaziPodatke(hashZgodovina);
         }
         else{
+            lv.setAdapter(null);
             TextView nizgodovine=findViewById(R.id.activity_zgodovina_nizgodovine);
             nizgodovine.setVisibility(View.VISIBLE);
         }
