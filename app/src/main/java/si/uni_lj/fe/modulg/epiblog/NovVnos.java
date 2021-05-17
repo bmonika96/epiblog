@@ -107,7 +107,7 @@ public class NovVnos extends AppCompatActivity {
         else if(curheight>sheight && !menuvisible){
             setvisible(true);
         }
-        sheight=curheight;
+        //sheight=curheight;
     }
     private void setvisible(Boolean t) {
         runOnUiThread(new Runnable() {
