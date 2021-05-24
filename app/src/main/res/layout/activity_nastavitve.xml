@@ -8,9 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:orientation="vertical"
@@ -31,8 +30,9 @@
                 android:layout_height="wrap_content"
                 android:name="ime"
                 android:id="@+id/ime"
-                android:hint="Ime"
+                android:hint="@string/registracija_ime_hint"
                 android:paddingTop="16dp"
+                android:maxLength="20"
 
                 />
             <EditText
@@ -41,8 +41,9 @@
                 android:layout_height="wrap_content"
                 android:name="priimek"
                 android:id="@+id/priimek"
-                android:hint="Priimek"
+                android:hint="@string/registracija_priimek_hint"
                 android:paddingTop="16dp"
+                android:maxLength="20"
 
                 />
             <EditText
@@ -51,8 +52,9 @@
                 android:layout_height="wrap_content"
                 android:name="naslov"
                 android:id="@+id/naslov"
-                android:hint="Naslov"
+                android:hint="@string/registracija_naslov_hint"
                 android:paddingTop="16dp"
+                android:maxLength="40"
 
                 />
             <EditText
@@ -61,7 +63,9 @@
                 android:layout_height="wrap_content"
                 android:name="osebnaStevilka"
                 android:id="@+id/osebnaStevilka"
-                android:hint="Osebna številka"
+                android:hint="@string/registracija_osebna_stevilka_hint"
+                android:maxLength="11"
+                android:inputType="number"
                 />
             <EditText
                 android:layout_marginTop="20dp"
@@ -69,7 +73,9 @@
                 android:layout_height="wrap_content"
                 android:name="stevilkaZdravnika"
                 android:id="@+id/stevilkaZdravnika"
-                android:hint="Številka osebnega zdravnika"
+                android:hint="@string/registracija_stevilka_zdravnika_hint"
+                android:maxLength="11"
+                android:inputType="number"
 
                 />
             <TextView
@@ -90,7 +96,8 @@
                 android:name="zdravila"
                 android:paddingTop="16dip"
                 android:layout_marginTop="20dp"
-                android:hint="Zdravila, ki jih jemljete"
+                android:hint="@string/registracija_zdravila_hint"
+                android:maxLength="20"
                 />
 
             <LinearLayout
@@ -105,17 +112,17 @@
                     android:id="@+id/opis_dogodka_nazaj"
                     android:onClick="pojdi_nazaj"
                     android:text="@string/xml_nazaj"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="76dp"
+                    android:layout_height="60dp"
                     android:layout_margin="20dp"/>
                 <Button
                     android:id="@+id/registracija_gumb"
-                    android:layout_height="76dp"
+                    android:layout_height="60dp"
                     android:layout_width="wrap_content"
                     android:onClick="uporabnik_shrani"
                     android:text="@string/xml_shrani"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:layout_margin="20dp"/>
 
             </LinearLayout>

@@ -7,9 +7,8 @@
 
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-
-android:orientation="vertical"
-android:layout_gravity="center">>
+    android:orientation="vertical"
+    android:layout_gravity="center">>
 
    <LinearLayout
        android:layout_width="match_parent"
@@ -51,7 +50,7 @@ android:layout_gravity="center">>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="5"
         android:orientation="vertical"
     >
         <Button
@@ -60,7 +59,7 @@ android:layout_gravity="center">>
             android:text="@string/nov_vnos"
             android:onClick="odpri_nov_vnos"
             android:id="@+id/novVnos"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="60dp"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
@@ -69,11 +68,19 @@ android:layout_gravity="center">>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Današnji datum: "
+            android:gravity="center"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="prazno"
             android:id="@+id/profil_datum"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:gravity="center"
             android:layout_gravity="center"
+            android:layout_margin="15dp"
             />
 
         <TextView
@@ -81,7 +88,7 @@ android:layout_gravity="center">>
             android:layout_height="wrap_content"
             android:text="prazno"
             android:id="@+id/profil_st_napadov"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:gravity="center"
             android:layout_gravity="center"
             />

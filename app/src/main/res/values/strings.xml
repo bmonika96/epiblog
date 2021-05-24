@@ -39,17 +39,31 @@
     <string name="opis_dogodka_datum_ura">Datum in ura napada</string>
     <string name="opis_dogodka_trajanje">Trajanje napada</string>
     <string name="opis_dogodka_intenzivnost">Intenzivnost napada</string>
-    <string name="opis_dogodka_sprozilci">Možni sprožilci napada napada</string>
+    <string name="opis_dogodka_sprozilci">Možni sprožilci napada</string>
     <string name="xml_dodaj">Dodaj</string>
     <string name="xml_1_cas_napada">1. Čas napada</string>
     <string name="xml_2_trajanje_napada">2. Trajanje napada</string>
     <string name="xml_3_intenzivnost">3. Intenzivnost</string>
     <string name="xml_nazaj">Nazaj</string>
     <string name="xml_poslji_sms">Pošlji sms</string>
-    <string name="xml_izpolnite_im_ve_informaicj">Izpolnite čim več informaicj</string>
+    <string name="xml_izpolnite_cim_vec_informacij">Izpolnite čim več informacij</string>
     <string name="xml_shrani">SHRANI</string>
     <string name="xml_ni_shranjene_zgodovine">Ni shranjene zgodovine</string>
     <string name="shramba_tag_id">Id</string>
     <string name="xml_izbrisi">Izbriši</string>
+    <string name="registracija_ime_hint">Ime</string>
+    <string name="registracija_priimek_hint">Priimek</string>
+    <string name="registracija_naslov_hint">Naslov</string>
+    <string name="registracija_osebna_stevilka_hint">Osebna številka</string>
+    <string name="registracija_stevilka_zdravnika_hint">Številka osebnega zdravnika</string>
+    <string name="registracija_zdravila_hint">Zdravila, ki jih jemljete</string>
+    <string name="zgodovina_ni_vnosov">Ni shranjene zgodovine</string>
+    <string name="zgodovina_trajanje_napada">Trajanje napada:</string>
+    <string name="zgodovina_datum_in_ura">Datum in ura:</string>
+    <string name="zgodovina_intenzivnost">Intenzivnost:</string>
+    <string name="zgodovina_sprozilci">Sprožilci:</string>
+    <string name="opis_dogodka_4_sprozilci">4. Sprožilci</string>
+    <string name="opis_dogodka_header">Podatki o dogodku</string>
+    <string name="opis_dogodka_izbrisi">Izbriši dogodek</string>
 
 </resources>

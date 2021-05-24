@@ -2,34 +2,22 @@ package si.uni_lj.fe.modulg.epiblog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.slider.Slider;
 
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import java.io.Serializable;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Timer;
@@ -47,7 +35,6 @@ public class NovVnos extends AppCompatActivity {
     //prklkičič,dodaj
     private Shramba shramba;
     private EditText trajanje_napada;
-    private EditText intenzivnost_napada;
     private EditText moznisprozilci_napada;
     private Button nov_vnos_datum;
     private Button nov_vnos_ura;
@@ -55,6 +42,10 @@ public class NovVnos extends AppCompatActivity {
     private TimePickerDialog izberiUro;
     private int sheight;
     Boolean menuvisible=true;
+    private Slider slider;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,12 +61,15 @@ public class NovVnos extends AppCompatActivity {
 
         shramba = new Shramba(this);
         trajanje_napada=(EditText) findViewById(R.id.nov_vnos_vnesi_trajanje);
-        intenzivnost_napada=(EditText) findViewById(R.id.nov_vnos_vnesi_intenzivnost);
         moznisprozilci_napada=(EditText) findViewById(R.id.nov_vnos_vnesi_sprozilci);
 
+        slider = (Slider) findViewById(R.id.nov_vnos_vnesi_intenzivnost);
+
+        // nastavi datum na danes
         nov_vnos_datum = findViewById(R.id.nov_vnos_datum);
         nov_vnos_datum.setText(danesDatum());
 
+        // nastavi uro na trenutno
         nov_vnos_ura = findViewById(R.id.nov_vnos_ura);
         nov_vnos_ura.setText(danesUra());
         Timer timer = new Timer();
@@ -188,41 +182,16 @@ public class NovVnos extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         int ura = cal.get(Calendar.HOUR_OF_DAY);
         int minuta = cal.get(Calendar.MINUTE);
+        //if(minuta < 10) {
+          //   minuta = '0' + minuta;
+        //}
         return (ura + ":" + minuta);
 
     }
-    private String datumString(int dan, int mesec, int leto) {
-        return dan  + " " + imeMesec(mesec)  + " " + leto;
-    }
-    private String imeMesec(int mesec)
-    {
-        if(mesec == 1)
-            return "JANUAR";
-        if(mesec == 2)
-            return "FEBRUAR";
-        if(mesec == 3)
-            return "MAREC";
-        if(mesec == 4)
-            return "APRIL";
-        if(mesec == 5)
-            return "MAJ";
-        if(mesec == 6)
-            return "JUNIJ";
-        if(mesec == 7)
-            return "JULIJ";
-        if(mesec == 8)
-            return "AUGUST";
-        if(mesec == 9)
-            return "SEPTEMBER";
-        if(mesec == 10)
-            return "OKTOBER";
-        if(mesec == 11)
-            return "NOVEMBER";
-        if(mesec == 12)
-            return "DECEMBER";
 
-        //default
-        return "JANUAR";
+
+    private String datumString(int dan, int mesec, int leto) {
+        return dan  + " " + mesec  + " " + leto;
     }
 
     public void pojdi_nazaj(View view) {
@@ -237,13 +206,13 @@ public class NovVnos extends AppCompatActivity {
 
     public void nov_vnos_shrani(View view){
 
-        String thisid=shramba.dodajZgodovino(nov_vnos_datum.getText().toString() + " " + nov_vnos_ura.getText().toString(),trajanje_napada.getText().toString(),intenzivnost_napada.getText().toString(),moznisprozilci_napada.getText().toString());
+        String thisid=shramba.dodajZgodovino(nov_vnos_datum.getText().toString() + " " + nov_vnos_ura.getText().toString(),trajanje_napada.getText().toString(), String.valueOf(slider.getValue()),moznisprozilci_napada.getText().toString());
 
         Intent i = new Intent(this,OpisDogodka.class);
         ArrayList<String> list = new ArrayList<String>();
         list.add(nov_vnos_datum.getText().toString() + " " + nov_vnos_ura.getText().toString());
         list.add(trajanje_napada.getText().toString());
-        list.add(intenzivnost_napada.getText().toString());
+        list.add(String.valueOf(slider.getValue()));
         list.add(moznisprozilci_napada.getText().toString());
         list.add(thisid);
         i.putExtra(OpisDogodka.PODATKIODOGODKU, list);

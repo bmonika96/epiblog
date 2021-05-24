@@ -71,7 +71,8 @@
         android:layout_height="wrap_content"
         android:text=""
         android:paddingTop="16dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:inputType="number"/>
 
     <TextView android:id="@+id/nov_vnos_intenzivnost"
         android:layout_width="wrap_content"
@@ -80,14 +81,16 @@
         android:paddingTop="16dp"
         android:textSize="16sp"/>
 
-    <EditText android:id="@+id/nov_vnos_vnesi_intenzivnost"
+    <com.google.android.material.slider.Slider
+        android:id="@+id/nov_vnos_vnesi_intenzivnost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:paddingTop="16dip"
-        android:textSize="16sp"/>
+        android:valueFrom="0.0"
+        android:valueTo="10.0"
+        android:value="0.0"
+        android:stepSize="1"/>
 
-    <TextView android:id="@+id/nov_vnos_sprotilci"
+    <TextView android:id="@+id/nov_vnos_sprozilci"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nov_vnos_sprozilci_napada"
@@ -115,11 +118,11 @@
             android:text="@string/xml_nazaj"
             android:textSize="20dp"
             android:layout_width="wrap_content"
-            android:layout_height="76dp"
+            android:layout_height="60dp"
             android:layout_margin="20dp"/>
         <Button
             android:id="@+id/nov_vnos_gumb_dodaj"
-            android:layout_height="76dp"
+            android:layout_height="60dp"
             android:layout_width="wrap_content"
             android:onClick="nov_vnos_shrani"
             android:text="@string/xml_dodaj"
