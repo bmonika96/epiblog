@@ -23,12 +23,6 @@ import java.util.ArrayList;
 
 public class OpisDogodka extends AppCompatActivity {
     public static String PODATKIODOGODKU="PodatkiODogodku";
-    //Naslov
-    //Čas napada
-    //Trajanje napada
-    //intenzivnost
-    //možni sprozilci
-    //obvesti zdravnika => pošlji smsmsmsmsmsmsmsms
     private Shramba shramba;
     TextView cas_napada;
     TextView trajanje_napada;
@@ -57,13 +51,13 @@ public class OpisDogodka extends AppCompatActivity {
     public void poslji_sms(View view){
         String phone=shramba.pridobiUporabnikaZdravnikovaStevilka();
         String message=
-                "<I>"+shramba.pridobiUporabnikaIme()+"</I>\n" +
-                        "<P>"+shramba.pridobiUporabnikaPriimek()+"</P>\n" +
-                        "<C>"+list.get(0)+"</C>\n"+
-                        "<T>"+list.get(1)+"<T>\n"+
-                        "<F>"+list.get(2)+"</F>\n" +
-                        "<S>"+list.get(3)+"</S>\n"+
-                        "<G>"+shramba.pridobiUporabnikaOsebnaStevilka()+"</G>";
+                shramba.pridobiUporabnikaIme()+"\n" +
+                        shramba.pridobiUporabnikaPriimek()+"\n" +
+                        list.get(0)+"\n"+
+                        list.get(1)+"\n"+
+                        list.get(2)+"\n" +
+                        list.get(3)+"\n"+
+                        shramba.pridobiUporabnikaOsebnaStevilka();
         sendSms(message,phone);
         this.finish();
     }
