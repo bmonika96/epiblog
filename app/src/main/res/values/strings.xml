@@ -65,5 +65,6 @@
     <string name="opis_dogodka_4_sprozilci">4. Sprožilci</string>
     <string name="opis_dogodka_header">Podatki o dogodku</string>
     <string name="opis_dogodka_izbrisi">Izbriši dogodek</string>
+    <string name="xml_danasnji_datum">Današnji datum:</string>
 
 </resources>
