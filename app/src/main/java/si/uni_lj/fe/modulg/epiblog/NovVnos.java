@@ -81,18 +81,22 @@ public class NovVnos extends AppCompatActivity {
 
     public void keyopen()
     {
-        Rect rectgle= new Rect();
-        Window window= getWindow();
-        window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
-        int curheight= rectgle.bottom;
+        try{
+            Rect rectgle= new Rect();
+            Window window= getWindow();
+            window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
+            int curheight= rectgle.bottom;
 
-        if (curheight<sheight && menuvisible )
-        {
-            setvisible(false);
+            if (curheight<sheight && menuvisible )
+            {
+                setvisible(false);
+            }
+            else if(curheight>sheight && !menuvisible){
+                setvisible(true);
+            }
         }
-        else if(curheight>sheight && !menuvisible){
-            setvisible(true);
-        }
+
+        catch (Exception e){}
     }
 
     private void setvisible(Boolean t) {
