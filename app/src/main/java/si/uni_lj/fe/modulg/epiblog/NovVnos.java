@@ -7,7 +7,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -26,13 +25,6 @@ import java.util.TimerTask;
 
 public class NovVnos extends AppCompatActivity {
 
-    //Naslov
-    //datum un čas napada
-    //Trajanje
-    //Intenzivnost
-    //možni sprozilci napada
-    //obvesti zdravnika
-    //prklkičič,dodaj
     private Shramba shramba;
     private EditText trajanje_napada;
     private EditText moznisprozilci_napada;
@@ -101,8 +93,8 @@ public class NovVnos extends AppCompatActivity {
         else if(curheight>sheight && !menuvisible){
             setvisible(true);
         }
-        //sheight=curheight;
     }
+
     private void setvisible(Boolean t) {
         runOnUiThread(new Runnable() {
             @Override
@@ -118,6 +110,7 @@ public class NovVnos extends AppCompatActivity {
             }
         });
     }
+
     private void initDatePicker()
     {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
@@ -224,16 +217,13 @@ public class NovVnos extends AppCompatActivity {
         Intent i = new Intent(this,Zgodovina.class);
         startActivity(i);
         this.finish();
-        Log.d("abc","zgo");
     }
     public void clickedProfil(MenuItem item){
         this.finish();
-        Log.d("abc","pro");
     }
     public void clickedNastavitve(MenuItem item){
         Intent i = new Intent(this,Nastavitve.class);
         startActivity(i);
         this.finish();
-        Log.d("abc","nov");
     }
 }

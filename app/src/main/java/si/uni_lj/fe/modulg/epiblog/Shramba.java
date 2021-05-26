@@ -37,7 +37,6 @@ public class Shramba  {
     }
 
 
-
     private void vpsiVDatoteko(String vsebina,String filename){
         try {
             //ustvarimo izhodni tok
@@ -333,6 +332,8 @@ public class Shramba  {
         return value;
 
     }
+
+    //za debugiranje
     private static String nodeListToString(NodeList nodes) throws TransformerException {
         DOMSource source = new DOMSource();
         StringWriter writer = new StringWriter();

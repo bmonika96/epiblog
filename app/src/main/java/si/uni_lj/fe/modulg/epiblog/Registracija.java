@@ -1,37 +1,12 @@
 package si.uni_lj.fe.modulg.epiblog;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Registracija extends AppCompatActivity {
 
-    //Naslov
-    //ime
-    //priimek
-    //naslov bivanja
-    //stevilka osbnega zdravnika
-    //ali jemljete zdravila? ->vpišite zdravil
     private Shramba shramba;
     private EditText ime;
     private EditText priimek;

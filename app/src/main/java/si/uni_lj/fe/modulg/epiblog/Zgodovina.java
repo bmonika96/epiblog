@@ -11,13 +11,10 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -25,10 +22,8 @@ import org.w3c.dom.NodeList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-//Banana
 public class Zgodovina extends AppCompatActivity {
-    //Naslov
-    //List z zgodovino po mesecih
+
     Shramba shramba;
     ListView lv;
     @Override
@@ -62,8 +57,6 @@ public class Zgodovina extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-
         NodeList nodezgodovina=shramba.pridobiZgodovino();
         if (nodezgodovina!=null&&nodezgodovina.getLength()>0) {
             ArrayList<HashMap<String, String>> hashZgodovina = nodelistToHashmap(nodezgodovina);
@@ -89,8 +82,6 @@ public class Zgodovina extends AppCompatActivity {
         String TAG = this.getClass().getSimpleName();
         ArrayList<HashMap<String, String>> contactList = new ArrayList<>();
             try {
-
-                // looping through All Contacts
                 for (int i = 0; i < nodeList.getLength(); i++) {
                     Node c =nodeList.item(i);
 
@@ -120,22 +111,15 @@ public class Zgodovina extends AppCompatActivity {
             return contactList;
         }
     public void clickedZgodovina(MenuItem item){
-        Log.d("abc","zgo");
+
     }
     public void clickedProfil(MenuItem item){
         this.finish();
-        Log.d("abc","pro");
     }
     public void clickedNastavitve(MenuItem item){
         Intent i = new Intent(this,Nastavitve.class);
         startActivity(i);
         this.finish();
-        Log.d("abc","nov");
     }
-    public void reload(){
-        finish();
-        overridePendingTransition(0, 0);
-        startActivity(getIntent());
-        overridePendingTransition(0, 0);
-    }
+
 }

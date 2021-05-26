@@ -6,25 +6,18 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
+
 import android.view.Menu;
-import android.view.MenuInflater;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -35,11 +28,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Navigation bar
-    //Slika profila, ime, naslov
-    //Današnji datum
-    //Nov vnos
-    //Preglej zgodovino
+
 
     Shramba shramba;
     TextView ime;
@@ -113,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void requestPermisions() {
         int permissions_code = 42;
-        String[] permissions = {Manifest.permission.SEND_SMS, Manifest.permission.BLUETOOTH};
+        String[] permissions = {Manifest.permission.SEND_SMS};
 
         if(!hasPermissions(this, permissions)){
             ActivityCompat.requestPermissions(this, permissions, permissions_code);
@@ -121,13 +110,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void clickedZgodovina(MenuItem item){
         odpri_zgodovino(null);
-        Log.d("abc","zgo");
     }
     public void clickedProfil(MenuItem item){
-        Log.d("abc","pro");
+
     }
     public void clickedNastavitve(MenuItem item){
         odpri_nastavitve(null);
-        Log.d("abc","nov");
     }
 }

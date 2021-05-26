@@ -2,12 +2,10 @@ package si.uni_lj.fe.modulg.epiblog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Telephony;
+
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.MenuItem;
@@ -15,9 +13,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
@@ -85,19 +80,19 @@ public class OpisDogodka extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         this.finish();
-        Log.d("abc","zgo");
+
     }
     public void clickedProfil(MenuItem item){
         Intent i = new Intent(this,MainActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
-        Log.d("abc","pro");
+        this.finish();
+
     }
     public void clickedNastavitve(MenuItem item){
         Intent i = new Intent(this,Nastavitve.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         this.finish();
-        Log.d("abc","nov");
     }
 }

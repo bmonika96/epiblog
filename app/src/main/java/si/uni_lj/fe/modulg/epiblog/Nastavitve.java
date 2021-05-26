@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,12 +23,6 @@ import java.util.TimerTask;
 
 public class Nastavitve extends AppCompatActivity {
 
-    //Naslov
-    //ime
-    //priimek
-    //naslov bivanja
-    //stevilka osbnega zdravnika
-    //ali jemljete zdravila? ->vpišite zdravil
     private Shramba shramba;
     private EditText ime;
     private EditText priimek;
@@ -102,7 +95,6 @@ public class Nastavitve extends AppCompatActivity {
         else if(curheight>sheight && !menuvisible){
             setvisible(true);
         }
-        //sheight=curheight;
     }
     private void setvisible(Boolean t) {
         runOnUiThread(new Runnable() {
@@ -128,13 +120,11 @@ public class Nastavitve extends AppCompatActivity {
         Intent i = new Intent(this,Zgodovina.class);
         startActivity(i);
         this.finish();
-        Log.d("abc","zgo");
     }
     public void clickedProfil(MenuItem item){
         this.finish();
-        Log.d("abc","pro");
     }
     public void clickedNastavitve(MenuItem item){
-        Log.d("abc","nov");
+
     }
 }
