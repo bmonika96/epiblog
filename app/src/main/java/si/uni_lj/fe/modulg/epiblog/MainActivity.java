@@ -29,7 +29,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
 
-
+//fifg
     Shramba shramba;
     TextView ime;
     TextView naslov;
