@@ -55,6 +55,20 @@ public class Registracija extends AppCompatActivity {
 
     }
     public void nov_uporabnik_shrani(View view){
+        // validacija, polja ne smejo biti prazna
+        if(ime.getText().toString().equals("")) {
+            ime.setError(getString(R.string.validacija_ime));
+            return;
+        }
+        if(priimek.getText().toString().equals("")) {
+            priimek.setError(getString(R.string.validacija_priimek));
+            return;
+        }
+        if(stevilkaZdravnika.getText().toString().equals("")) {
+            stevilkaZdravnika.setError(getString(R.string.validacija_osebni_zdravnik));
+            return;
+        }
+
         shramba.ustvariUporabnika(ime.getText().toString(),priimek.getText().toString(),naslov.getText().toString(), osebnaStevilka.getText().toString(), stevilkaZdravnika.getText().toString(), zdravila.getText().toString());
         this.finish();
     }

@@ -34,6 +34,7 @@ public class OpisDogodka extends AppCompatActivity {
     TextView trajanje_napada;
     TextView intenzivnost_napada;
     TextView moznisprozilci_napada;
+    TextView stevilka;
     String id="";
     ArrayList<String> list;
     @Override
@@ -45,6 +46,8 @@ public class OpisDogodka extends AppCompatActivity {
         trajanje_napada=(TextView) findViewById(R.id.opis_dogodka_trajanje);
         intenzivnost_napada=(TextView) findViewById(R.id.opis_dogodka_intenzivnost);
         moznisprozilci_napada=(TextView) findViewById(R.id.opis_dogodka_moznisprozilci);
+        stevilka=(TextView) findViewById(R.id.opis_dogodka_stevilka);
+
         Intent i = getIntent();
         list = (ArrayList<String>) i.getSerializableExtra(PODATKIODOGODKU);
         trajanje_napada.setText(getString(R.string.opis_dogodka_trajanje) + ":" + " \n" +list.get(0));
@@ -52,6 +55,9 @@ public class OpisDogodka extends AppCompatActivity {
         intenzivnost_napada.setText(getString(R.string.opis_dogodka_intenzivnost) + ":" + " \n" + list.get(2));
         moznisprozilci_napada.setText((getString(R.string.opis_dogodka_sprozilci) + ":" + " \n" +list.get(3)));
         id=list.get(4);
+
+        String phone=shramba.pridobiUporabnikaZdravnikovaStevilka();
+        stevilka.setText(phone);
     }
 
     public void poslji_sms(View view){
