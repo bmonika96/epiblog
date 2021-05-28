@@ -42,6 +42,7 @@ public class Nastavitve extends AppCompatActivity {
         Menu menu = navigation.getMenu();
         menu.findItem(R.id.navigation_nastavitve).setChecked(true);
 
+        //Pridobimo velikost okna aplikacije, za kasnejše prepoznavanje ali je prikazanaa tipkovnica
         Rect rectgle= new Rect();
         Window window= getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
@@ -55,6 +56,7 @@ public class Nastavitve extends AppCompatActivity {
         stevilkaZdravnika = (EditText) findViewById(R.id.stevilkaZdravnika);
         zdravila = (EditText) findViewById(R.id.zdravila);
 
+        //Pridobimo trenutne podatke uporabnika in jih vnesemo v vnosna polja,
         Node uporabnik = shramba.pridobiUporabnika();
         if (uporabnik != null) {
             ime.setText(shramba.pridobiUporabnikaIme());
@@ -66,6 +68,8 @@ public class Nastavitve extends AppCompatActivity {
             Button shrani = (Button) findViewById(R.id.registracija_gumb);
             shrani.setText(R.string.shrani);
         }
+
+        //Časovnik z 50 ms periodo preverja ali je tipkovnica prikazana
         Timer timer = new Timer();
         TimerTask t = new TimerTask() {
             @Override
@@ -78,9 +82,8 @@ public class Nastavitve extends AppCompatActivity {
         timer.scheduleAtFixedRate(t,0,50);
 
     }
-    public void pojdi_nazaj(View view) {
-        this.finish();
-    }
+
+    //Preverjanje ali je tipkovnica prikazana (če se spremeni velikost okna aplikacije)
     public void keyopen()
     {
         try{
@@ -99,6 +102,7 @@ public class Nastavitve extends AppCompatActivity {
         }
         catch (Exception e){}
     }
+    //Skrijemo ali prikažemo navigation bar
     private void setvisible(Boolean t) {
         runOnUiThread(new Runnable() {
             @Override
@@ -114,11 +118,17 @@ public class Nastavitve extends AppCompatActivity {
             }
         });
     }
+
+//Gumbi na aktivnosti
+    public void pojdi_nazaj(View view) {
+        this.finish();
+    }
+
     public void uporabnik_shrani(View view){
         shramba.ustvariUporabnika(ime.getText().toString(),priimek.getText().toString(),naslov.getText().toString(), osebnaStevilka.getText().toString(), stevilkaZdravnika.getText().toString(), zdravila.getText().toString());
         this.finish();
     }
-
+//Navigation bar
     public void clickedZgodovina(MenuItem item){
         Intent i = new Intent(this,Zgodovina.class);
         startActivity(i);

@@ -27,8 +27,6 @@ import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
     Shramba shramba;
     TextView ime;
     TextView naslov;
@@ -46,12 +44,16 @@ public class MainActivity extends AppCompatActivity {
         naslov = findViewById(R.id.main_naslov);
         datum=findViewById(R.id.profil_datum);
         st_napadov=findViewById(R.id.profil_st_napadov);
-
+        requestPermisions();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        /*
+        Vsakič ob vstopu v aktivnost, bodo bile posodobljene uporabnikove informacije, ki se prikazujejo.
+        Če uporabnik ne obstaja, zaženi aktivnost kjer se registrira.
+         */
         Node uporabnik = shramba.pridobiUporabnika();
         if (uporabnik == null ) {
             Intent registracija = new Intent(this, Registracija.class);
@@ -63,10 +65,9 @@ public class MainActivity extends AppCompatActivity {
         }
         st_napadov.setText("Število zabeleženih napadov: "+String.valueOf(shramba.pridobiVelikostZgodovine()));
         datum.setText(danesDatum());
-        requestPermisions();
-
     }
 
+    //interakcija z gumbi na prikazu
     public void odpri_zgodovino(View v) {
         Intent intent = new Intent(this, Zgodovina.class);
         startActivity(intent);
@@ -80,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
 
     }
+
+    //pridobimo današnji datum
     private String danesDatum() {
         Calendar cal = Calendar.getInstance();
         int leto = cal.get(Calendar.YEAR);
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         return dan+"."+mesec+"."+leto;
     }
 
+    //funkciji, ki zaprosita za dovoljenje za pošiljanje SMS, če to še ni dovoljeno.
     public static boolean hasPermissions(Context context, String... permissions) {
         if (context != null && permissions != null) {
             for (String permission : permissions) {
@@ -102,11 +106,12 @@ public class MainActivity extends AppCompatActivity {
     public void requestPermisions() {
         int permissions_code = 42;
         String[] permissions = {Manifest.permission.SEND_SMS};
-
         if(!hasPermissions(this, permissions)){
             ActivityCompat.requestPermissions(this, permissions, permissions_code);
         }
     }
+
+    //interakcija z spodnim navigation barom
     public void clickedZgodovina(MenuItem item){
         odpri_zgodovino(null);
     }
