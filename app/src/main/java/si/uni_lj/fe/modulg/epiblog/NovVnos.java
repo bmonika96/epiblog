@@ -42,13 +42,15 @@ public class NovVnos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nov_vnos);
-
+        //Pridobimo velikost okna aplikacije, za kasnejše prepoznavanje ali je prikazanaa tipkovnica
         Rect rectgle= new Rect();
         Window window= getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
         sheight= rectgle.bottom;
 
-        initDatePicker(); // inicializacija
+
+        //inicializacija datum pickerjov
+        initDatePicker();
         initTimePicker();
 
         shramba = new Shramba(this);
@@ -64,6 +66,8 @@ public class NovVnos extends AppCompatActivity {
         // nastavi uro na trenutno
         nov_vnos_ura = findViewById(R.id.nov_vnos_ura);
         nov_vnos_ura.setText(danesUra());
+
+        //Časovnik z 50 ms periodo preverja ali je tipkovnica prikazana
         Timer timer = new Timer();
         TimerTask t = new TimerTask() {
             @Override
@@ -78,7 +82,7 @@ public class NovVnos extends AppCompatActivity {
 
     }
 
-
+    //Preverjanje ali je tipkovnica prikazana (če se spremeni velikost okna aplikacije)
     public void keyopen()
     {
         try{
@@ -99,6 +103,7 @@ public class NovVnos extends AppCompatActivity {
         catch (Exception e){}
     }
 
+    //Skrijemo ali prikažemo navigation bar
     private void setvisible(Boolean t) {
         runOnUiThread(new Runnable() {
             @Override
@@ -136,6 +141,7 @@ public class NovVnos extends AppCompatActivity {
         izberiDatum = new DatePickerDialog(this, dateSetListener, year, month, day);
         //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
     }
+
     private void initTimePicker()
     {
         TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener()
@@ -191,6 +197,7 @@ public class NovVnos extends AppCompatActivity {
         return dan  + " " + mesec  + " " + leto;
     }
 
+    //Gumbi na aktivnosti
     public void pojdi_nazaj(View view) {
         this.finish();
     }
@@ -201,10 +208,9 @@ public class NovVnos extends AppCompatActivity {
         izberiUro.show();
     }
 
+
     public void nov_vnos_shrani(View view){
-
         String thisid=shramba.dodajZgodovino(nov_vnos_datum.getText().toString() + " " + nov_vnos_ura.getText().toString(),trajanje_napada.getText().toString(), String.valueOf(slider.getValue()),moznisprozilci_napada.getText().toString());
-
         Intent i = new Intent(this,OpisDogodka.class);
         ArrayList<String> list = new ArrayList<String>();
         list.add(nov_vnos_datum.getText().toString() + " " + nov_vnos_ura.getText().toString());
@@ -217,6 +223,7 @@ public class NovVnos extends AppCompatActivity {
         this.finish();
     }
 
+    //Navigation bar
     public void clickedZgodovina(MenuItem item){
         Intent i = new Intent(this,Zgodovina.class);
         startActivity(i);
