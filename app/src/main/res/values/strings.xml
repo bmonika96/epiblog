@@ -66,5 +66,9 @@
     <string name="opis_dogodka_header">Podatki o dogodku</string>
     <string name="opis_dogodka_izbrisi">Izbriši dogodek</string>
     <string name="xml_danasnji_datum">Današnji datum:</string>
+    <string name="validacija_ime">Vpišite svoje ime</string>
+    <string name="validacija_priimek">Vpišite svoje priimek</string>
+    <string name="validacija_osebni_zdravnik">Vpišite številko svojega osebnega skrbnika</string>
+    <string name="opis_dogodka_stevilka_sms">SMS bo poslan na številko:</string>
 
 </resources>

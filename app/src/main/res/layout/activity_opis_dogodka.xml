@@ -7,30 +7,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:layout_marginTop="50dp"
-    android:layout_marginBottom="200dp"
+    android:layout_marginTop="30dp"
     android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    >
+    android:layout_marginRight="20dp">
 
     <TextView android:id="@+id/opis_dogodka_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/opis_dogodka_header"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:textSize="20sp"
         android:gravity="center"
         android:background="#7DBFC7"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_marginBottom="5dp"/>
+/>
 
     <TextView android:id="@+id/opis_dogodka_cas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/xml_1_cas_napada"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:textSize="20sp"
         android:gravity="center"
         android:background="#E1FAFA"
@@ -41,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/xml_2_trajanje_napada"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:textSize="20sp"
         android:gravity="center"
         android:background="#C5F1F6"
@@ -51,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/xml_3_intenzivnost"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:textSize="20sp"
         android:gravity="center"
         android:background="#ABDDE2"
@@ -61,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/opis_dogodka_4_sprozilci"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:textSize="20sp"
         android:gravity="center"
         android:background="#A9F9F9"/>
@@ -80,22 +77,35 @@
         app:strokeWidth="1dp"
         android:onClick="izbrisi_zgo"/>
 
+    <TextView android:id="@+id/opis_dogodka_poslano_stevilka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/opis_dogodka_stevilka_sms"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:gravity="center"
+/>
 
-</LinearLayout>
-
+    <TextView android:id="@+id/opis_dogodka_stevilka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:gravity="center"
+    />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="bottom|center">
-
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:gravity="center"
+        >
         <Button
             android:id="@+id/opis_dogodka_nazaj"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
             android:onClick="pojdi_nazaj"
             android:text="@string/xml_nazaj"
             android:textSize="20sp"
@@ -105,11 +115,11 @@
             android:id="@+id/opis_dogodka_posljisms"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_marginBottom="20dp"
             android:onClick="poslji_sms"
             android:text="@string/xml_poslji_sms"
             android:textSize="20sp" />
-
+    </LinearLayout>
     </LinearLayout>
 
 <com.google.android.material.bottomnavigation.BottomNavigationView
