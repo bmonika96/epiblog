@@ -1,6 +1,8 @@
 package si.uni_lj.fe.modulg.epiblog;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +31,15 @@ public class Registracija extends AppCompatActivity {
         zdravila = (EditText) findViewById(R.id.zdravila);
 
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
+
     public void nov_uporabnik_shrani(View view){
         // validacija, polja ne smejo biti prazna
         if(ime.getText().toString().equals("")) {
