@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         naslov = findViewById(R.id.main_naslov);
         datum=findViewById(R.id.profil_datum);
         st_napadov=findViewById(R.id.profil_st_napadov);
-        requestPermisions();
+
     }
 
     @Override
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         }
         st_napadov.setText("Število zabeleženih napadov: "+String.valueOf(shramba.pridobiVelikostZgodovine()));
         datum.setText(danesDatum());
+        requestPermisions();
     }
 
     //interakcija z gumbi na prikazu
