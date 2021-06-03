@@ -9,7 +9,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:orientation="vertical" >
@@ -64,7 +64,8 @@
         android:layout_height="wrap_content"
         android:text="@string/nov_vnos_trajanje_napada"
         android:paddingTop="16dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        />
 
     <EditText android:id="@+id/nov_vnos_vnesi_trajanje"
         android:layout_width="match_parent"
@@ -72,7 +73,9 @@
         android:text=""
         android:paddingTop="16dp"
         android:textSize="16sp"
-        android:inputType="number"/>
+        android:inputType="number"
+        android:maxLength="2"
+        android:autofillHints="" />
 
     <TextView android:id="@+id/nov_vnos_intenzivnost"
         android:layout_width="wrap_content"
@@ -95,14 +98,16 @@
         android:layout_height="wrap_content"
         android:text="@string/nov_vnos_sprozilci_napada"
         android:paddingTop="16dip"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        />
 
     <EditText android:id="@+id/nov_vnos_vnesi_sprozilci"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
         android:paddingTop="16dip"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:maxLength="60"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,7 +121,7 @@
             android:id="@+id/opis_dogodka_nazaj"
             android:onClick="pojdi_nazaj"
             android:text="@string/xml_nazaj"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_margin="20dp"/>
@@ -126,7 +131,7 @@
             android:layout_width="wrap_content"
             android:onClick="nov_vnos_shrani"
             android:text="@string/xml_dodaj"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_margin="20dp"/>
 
     </LinearLayout>

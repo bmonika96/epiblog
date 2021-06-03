@@ -7,9 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:orientation="vertical"
@@ -33,8 +32,8 @@
         android:hint="@string/registracija_ime_hint"
         android:paddingTop="16dp"
         android:maxLength="20"
-
-        />
+        android:importantForAutofill="no"
+        android:inputType="text" />
     <EditText
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -44,8 +43,8 @@
         android:hint="@string/registracija_priimek_hint"
         android:paddingTop="16dp"
         android:maxLength="20"
-
-        />
+        android:importantForAutofill="no"
+        android:inputType="text" />
     <EditText
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -55,8 +54,8 @@
         android:hint="@string/registracija_naslov_hint"
         android:paddingTop="16dp"
         android:maxLength="40"
-
-        />
+        android:importantForAutofill="no"
+        android:inputType="text" />
     <EditText
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -65,7 +64,8 @@
         android:id="@+id/osebnaStevilka"
         android:hint="@string/registracija_osebna_stevilka_hint"
         android:maxLength="11"
-        android:inputType="number"
+        android:inputType="phone"
+        android:importantForAutofill="no"
         />
     <EditText
         android:layout_marginTop="20dp"
@@ -75,8 +75,8 @@
         android:id="@+id/stevilkaZdravnika"
         android:hint="@string/registracija_stevilka_zdravnika_hint"
         android:maxLength="11"
-        android:inputType="number"
-
+        android:inputType="phone"
+        android:importantForAutofill="no"
         />
     <TextView
         android:layout_marginTop="20dp"
@@ -97,6 +97,7 @@
         android:paddingTop="16dip"
         android:layout_marginTop="20dp"
         android:hint="@string/registracija_zdravila_hint"
+        android:importantForAutofill="no"
         />
     <Button
         android:id="@+id/registracija_gumb"

@@ -70,5 +70,10 @@
     <string name="validacija_priimek">Vpišite svoje priimek</string>
     <string name="validacija_osebni_zdravnik">Vpišite številko svojega osebnega skrbnika</string>
     <string name="opis_dogodka_stevilka_sms">SMS bo poslan na številko:</string>
+    <string name="placeholder_datum">prazno</string>
+    <string name="placeholder_st_napadov">prazno</string>
+    <string name="placeholder_ime">"prazno"</string>
+    <string name="placeholder_naslov">"prazno"</string>
+    <string name="user_picture">user picture</string>
 
 </resources>
