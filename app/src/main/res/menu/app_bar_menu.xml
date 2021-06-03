@@ -3,13 +3,13 @@
     >
     <item
         android:id="@+id/navigation_dummyitem"
-        android:title="dummy"
+        android:title="@string/dummy"
         android:visible="false"/>
     <item
         android:onClick="clickedNastavitve"
         android:id="@+id/navigation_nastavitve"
         android:icon="@drawable/ic_settings"
-        android:title="Nastavitve"
+        android:title="@string/navbar_nastavitve"
 
         />
 
@@ -17,12 +17,12 @@
         android:id="@+id/navigation_profil"
         android:icon="@drawable/ic_home"
         android:onClick="clickedProfil"
-        android:title="Profil" />
+        android:title="@string/navbar_profil" />
 
     <item
         android:id="@+id/navigation_zgodovina"
         android:icon="@drawable/ic_history"
         android:onClick="clickedZgodovina"
-        android:title="Zgodovina" />
+        android:title="@string/navbar_zgodovina" />
 
 </menu>

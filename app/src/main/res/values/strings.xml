@@ -75,5 +75,9 @@
     <string name="placeholder_ime">"prazno"</string>
     <string name="placeholder_naslov">"prazno"</string>
     <string name="user_picture">user picture</string>
+    <string name="dummy">dummy</string>
+    <string name="navbar_nastavitve">Nastavitve</string>
+    <string name="navbar_profil">Profil</string>
+    <string name="navbar_zgodovina">Zgodovina</string>
 
 </resources>
