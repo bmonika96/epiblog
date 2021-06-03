@@ -32,7 +32,6 @@ public class NovVnos extends AppCompatActivity {
     private Button nov_vnos_ura;
     private DatePickerDialog izberiDatum;
     private TimePickerDialog izberiUro;
-    private int sheight;
     Boolean menuvisible=true;
     private Slider slider;
 
@@ -43,10 +42,6 @@ public class NovVnos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nov_vnos);
         //Pridobimo velikost okna aplikacije, za kasnejše prepoznavanje ali je prikazanaa tipkovnica
-        Rect rectgle= new Rect();
-        Window window= getWindow();
-        window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
-        sheight= rectgle.bottom;
 
 
         //inicializacija datum pickerjov
@@ -91,11 +86,11 @@ public class NovVnos extends AppCompatActivity {
             window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
             int curheight= rectgle.bottom;
 
-            if (curheight<sheight && menuvisible )
+            if (curheight<MainActivity.sheight && menuvisible )
             {
                 setvisible(false);
             }
-            else if(curheight>sheight && !menuvisible){
+            else if(curheight>MainActivity.sheight && !menuvisible){
                 setvisible(true);
             }
         }

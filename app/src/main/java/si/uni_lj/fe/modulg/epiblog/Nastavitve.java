@@ -30,7 +30,6 @@ public class Nastavitve extends AppCompatActivity {
     private EditText osebnaStevilka;
     private EditText stevilkaZdravnika;
     private EditText zdravila;
-    private int sheight;
     Boolean menuvisible=true;
 
     @Override
@@ -43,10 +42,7 @@ public class Nastavitve extends AppCompatActivity {
         menu.findItem(R.id.navigation_nastavitve).setChecked(true);
 
         //Pridobimo velikost okna aplikacije, za kasnejše prepoznavanje ali je prikazanaa tipkovnica
-        Rect rectgle= new Rect();
-        Window window= getWindow();
-        window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
-        sheight= rectgle.bottom;
+
 
         shramba = new Shramba(this);
         ime = (EditText) findViewById(R.id.ime);
@@ -92,11 +88,11 @@ public class Nastavitve extends AppCompatActivity {
             window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
             int curheight= rectgle.bottom;
 
-            if (curheight<sheight && menuvisible )
+            if (curheight<MainActivity.sheight && menuvisible )
             {
                 setvisible(false);
             }
-            else if(curheight>sheight && !menuvisible){
+            else if(curheight>MainActivity.sheight && !menuvisible){
                 setvisible(true);
             }
         }
